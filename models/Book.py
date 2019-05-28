@@ -12,7 +12,7 @@ class Book(db.Entity):
     description = Required(str)
     fiction = Required(bool)
     location = Required(str)
-    comment = Optional(str)
+    review = Optional(str)
 
 class BookSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -25,4 +25,4 @@ class BookSchema(Schema):
     description = fields.Str(required=True)
     fiction = fields.Bool(required=True)
     location = fields.Str(required=True)
-    comment = fields.Str(required=False)
+    review = fields.Str(required=False)
