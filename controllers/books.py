@@ -23,7 +23,7 @@ def create():
         book = Book(**data)
         db.commit()
     except ValidationError as err:
-        return jsonify({'message': 'Validarion failed', 'errors': err.message}), 422
+        return jsonify({'message': 'Validation failed', 'errors': err.message}), 422
 
     return schema.dumps(book), 201
 
@@ -55,3 +55,16 @@ def update(book_id):
         return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
 
     return schema.dumps(book)
+
+@router.route('/books/<int:book_id>', methods=['DELETE'])
+@db_session
+def delete(book_id):
+    book = Book.get(id=book_id)
+
+    if not book:
+        abort(404)
+
+    book.delete()
+    db.commit()
+
+    return '', 204
