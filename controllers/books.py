@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, abort
 from pony.orm import db_session
 from marshmallow import ValidationError
 from app import db
@@ -26,3 +26,14 @@ def create():
         return jsonify({'message': 'Validarion failed', 'errors': err.message}), 422
 
     return schema.dumps(book), 201
+
+@router.route('/books/<int:book_id>', methods=['GET'])
+@db_session
+def show(book_id):
+    schema = BookSchema()
+    book = Book.get(id=book_id)
+
+    if not book:
+        abort(404)
+
+    return schema.dumps(book)
