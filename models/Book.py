@@ -5,7 +5,7 @@ from marshmallow import Schema, fields
 class Book(db.Entity):
     title = Required(str, unique=True)
     author = Required(str)
-    isbn = Required(int)
+    isbn = Required(int, unique=True)
     genre = Required(str)
     pub_date = Required(int)
     book_jacket = Required(str, unique=True)

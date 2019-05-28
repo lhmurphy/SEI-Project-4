@@ -43,5 +43,89 @@ with db_session():
     location="Kansas"
     )
 
+    Book(
+    title="One Hundred Years of Solitude",
+    author="Gabriel García Márquez",
+    isbn="1000",
+    genre="Magical Realism",
+    book_jacket="https://images-na.ssl-images-amazon.com/images/I/91D-NuBThAL.jpg",
+    pub_date=1990,
+    description="One of the twentieth century's most beloved and acclaimed novels, One Hundred Years of Solitude tells the story of the rise and fall, birth and death of the mythical town of Macondo through the history of the Buendia family. Inventive, amusing, magnetic, sad, and alive with unforgettable men and women--brimming with truth, compassion, and a lyrical magic that strikes the soul--this novel is a masterpiece in the art of fiction.",
+    fiction=True,
+    location="Colombia"
+    )
+
+    Book(
+    title="The Tobacconist",
+    author="Robert Seethaler",
+    isbn="1770899650",
+    genre="Historical Fiction",
+    book_jacket="https://pictures.abebooks.com/isbn/9781770899650-uk.jpg",
+    pub_date=2012,
+    description="When seventeen-year-old Franz exchanges his home in the idyllic beauty of the Austrian lake district for the bustle of Vienna, his homesickness quickly dissolves amidst the thrum of the city. In his role as apprentice to the elderly tobacconist Otto Trsnyek, he will soon be supplying the great and good of Vienna with their newspapers and cigarettes. Among the regulars is a Professor Freud, whose predilection for cigars and occasional willingness to dispense romantic advice will forge a bond between him and young Franz. It is 1937. In a matter of months Germany will annex Austria and the storm that has been threatening to engulf the little tobacconist will descend, leaving the lives of Franz, Otto and Professor Freud irredeemably changed.",
+    fiction=True,
+    location="Austria"
+    )
+
+    Book(
+    title="Ali and Nino: A Love Story",
+    author="Kurban Said",
+    isbn="1468314408",
+    genre="Historical Romance",
+    book_jacket="https://images-na.ssl-images-amazon.com/images/I/41056SHJ3PL._SX299_BO1,204,203,200_.jpg",
+    pub_date=2016,
+    description="The sweeping tale of love challenged by war, as romantic and gripping as Gone with the Wind or Dr. Zhivago, Ali& Nino portrays, against a glamorously exotic backdrop,the enduring love between childhood friends divided by separate cultures.Ali and Nino grow up together in carefree innocence in Baku, on the Caspian Sea. Here, where East and West collide, they are inevitably drawn into the events of World War I and the Russian Revolution. Torn apart by the turmoil of the divided society around them, Ali joins the defense of Azerbaijan from the onslaught of the Red Army and Nino flees to the safety of Paris with their child, unsure whether they will ever see each other again. This is an unforgettable story of blood feud, adventure, and personal heroism―and a love that endures the upheaval of cultures.",
+    fiction=True,
+    location="Azerbaijan"
+    )
+
+    Book(
+    title="War and Turpentine",
+    author="Stefan Hertmans",
+    isbn="0099598043",
+    genre="Biographical Fiction",
+    book_jacket="https://images.penguinrandomhouse.com/cover/9781101872116",
+    pub_date=2017,
+    description="Shortly before his death, Stefan Hertmans' grandfather Urbain Martien gave his grandson a set of notebooks containing the detailed memories of his life. He grew up in poverty around 1900, the son of a struggling church painter who died young, and went to work in an iron foundry at only 13. Afternoons spent with his father at work on a church fresco were Urbain’s heaven; the iron foundry an inferno. During the First World War, Urbain was on the front line confronting the invading Germans, and ever after he is haunted by events he can never forget. The war ends and he marries his great love, Maria Emelia, but she dies tragically in the 1919 flu epidemic. Urbain mourns her bitterly for the rest of his life but, like the obedient soldier he is, he marries her sister at her parents' bidding. The rest is not quite silence, but a marriage with a sad secret at its heart, and the consolations found in art and painting. War and Turpentine is the imaginative reconstruction of a damaged life across the tumultuous decades of the twentieth century; a deeply moving portrayal of family, grief, love and war.",
+    fiction=True,
+    location="Belgium"
+    )
+
+    Book(
+    title="Treasures of the Thunder Dragon: A Portrait of Bhutan",
+    author="Queen of Bhutan Ashi Dorji Wangmo Wangchuck",
+    isbn="0670999016",
+    genre="Biographical Fiction",
+    book_jacket="https://images-na.ssl-images-amazon.com/images/I/51zkj8Aes8L._SX331_BO1,204,203,200_.jpg",
+    pub_date=2006,
+    description="Long regarded as the Forbidden Land, Bhutanor Druk Yul, the Land of the Thunder Dragonwas virtually closed to the outside world until the 1960s. Even today, little is known about this remote Himalayan Buddhist kingdom nestled between two giant neighbours, India and China. Often described as the Last Shangri La, Bhutan is still a country of pristine forests, alpine valleys and glacial lakes, rich in rare flora and fauna such as the blue poppy, the golden langur and the red panda. As spectacular as its natural beauty are the architecture of its towering dzongs (fortresses) and the art treasures that fill its monasteries and temples. Ashi Dorji Wangmo Wangchucks portrait of her country is a captivating blend of personal memoir, history, folklore and travelogue. It provides unique and intimate insights into Bhutanese culture and society, with its vivid glimpses of life in Bhutans villages and hamlets, monasteries and palaces. Her engaging account of her childhood, growing up in a village in western Bhutan and the changes she witnessed when the country decided to end its isolation also tells a larger storythat of Bhutans rapid transition from a medieval kingdom to a modern nation within the space of a decade. The author shares with us her delight in some of the hidden treasures of her country, which she discovered during her journeys on foot to every corner of Bhutanfrom highland villages in the shadow of the great Himalayan peaks to serene monasteries wreathed in myth and legend to the rainforests in the south and centre of the country, which are among the worlds richest biodiversity hotspots. This book, with its specially commissioned illustrations by young Bhutanese artists, and photographs from the authors family album, is essential reading both for those who plan to visit the Kingdom of the Thunder Dragon and for armchair travellers who yearn to experience the magic of Bhutan through their imaginations.",
+    fiction=False,
+    location="Bhutan"
+    )
+
+    Book(
+    title="La Casa de Los Espiritus: The House of the Spirits",
+    author="Isabel Allende",
+    isbn="10001",
+    genre="Literary Fiction",
+    book_jacket="https://images-na.ssl-images-amazon.com/images/I/41XFupEm%2BML._SX322_BO1,204,203,200_.jpg",
+    pub_date=2017,
+    description="In one of the most important and beloved Latin American works of the twentieth century, Isabel Allende weaves a luminous tapestry of three generations of the Trueba family, revealing both triumphs and tragedies. Here is patriarch Esteban, whose wild desires and political machinations are tempered only by his love for his ethereal wife, Clara, a woman touched by an otherworldly hand. Their daughter, Blanca, whose forbidden love for a man Esteban has deemed unworthy infuriates her father, yet will produce his greatest joy: his granddaughter Alba, a beautiful, ambitious girl who will lead the family and their country into a revolutionary future. The House of the Spirits is an enthralling saga that spans decades and lives, twining the personal and the political into an epic novel of love, magic, and fate.",
+    fiction=True,
+    location="Chile"
+    )
+
+    Book(
+    title="Smilla’s Sense of Snow",
+    author="Peter Hoeg",
+    isbn="0385315147",
+    genre="Thriller",
+    book_jacket="https://images-na.ssl-images-amazon.com/images/I/91wAm05r2fL.jpg",
+    pub_date=1995,
+    description="Smilla's Sense of Snow presents one of the toughest heroines in modern fiction. Smilla Qaavigaaq Jaspersen is part Inuit, but she lives in Copenhagen. She is thirty-seven, single, childless, moody, and she refuses to fit in. Smilla's six-year-old Inuit neighbor, Isaiah, manages only with a stubbornness that matches her own to befriend her. When Isaiah falls off a roof and is killed, Smilla doesn't believe it's an accident. She has seen his tracks in the snow, and she knows about snow. She decides to investigate and discovers that even the police don't want her to get involved. But opposition appeals to Smilla. As all of Copenhagen settles down for a quiet Christmas, Smilla's investigation takes her from a fervently religious accountant to a tough-talking pathologist and an alcoholic shipping magnate and into the secret files of the Danish company responsible for extracting most of Greenland's mineral wealth - and finally onto a ship with an international cast of villains bound for a mysterious mission on an uninhabitable island off Greenland. To read Smilla's Sense of Snow is to be taken on a magical, nerve-shattering journey - from the snow-covered streets of Copenhagen to the awesome beauty of the Arctic ice caps. A mystery, a love story, and an elegy for a vanishing way of life, Smilla's Sense of Snow is a breathtaking achievement, an exceptional feat of storytelling.",
+    fiction=True,
+    location="Copenhagen"
+    )
+
     # save the data to the database
     db.commit()
