@@ -37,3 +37,21 @@ def show(book_id):
         abort(404)
 
     return schema.dumps(book)
+
+@router.route('/books/<int:book_id>', methods=['PUT'])
+@db_session
+def update(book_id):
+    schema = BookSchema()
+    book = Book.get(id=book_id)
+
+    if not book:
+        abort(404)
+
+    try:
+        data = schema.load(request.get_json())
+        book.set(**data)
+        db.commit()
+    except ValidationError as err:
+        return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
+
+    return schema.dumps(book)
