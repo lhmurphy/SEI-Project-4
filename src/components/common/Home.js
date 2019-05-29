@@ -13,25 +13,6 @@ class Home extends React.Component{
     }
   }
 
-  componentDidMount() {
-    axios.get('/api/books')
-      .then(res => this.setState({ books: res.data}))
-  }
-
-  handleChange({target: { name, value }}) {
-    const data = {...this.state.data, [name]: value }
-    const errors = { ...this.state.errors, [name]: '' }
-    this.setState({ data, errors })
-  }
-
-  handleSubmit(e) {
-    e.preventDefault()
-    axios
-      .post('/api/register', this.state.data)
-      .then(() => this.props.history.push('/login'))
-      .catch((err) => this.setState({errors: err.response.data}))
-  }
-
   render() {
     return(
       <div className="home">
@@ -44,7 +25,12 @@ class Home extends React.Component{
                 data={this.state.data}
               />
             </div>
-            <div className="column">Welcome to Wanderlist</div>
+            <div className="column">
+              <h1>Welcome to Wanderlist</h1>
+              <p>
+              When you're planning your next trip...
+              </p>
+            </div>
           </div>
         </div>
       </div>

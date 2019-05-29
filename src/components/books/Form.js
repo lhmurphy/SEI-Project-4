@@ -6,13 +6,27 @@ class Form extends React.Component {
     super(props)
 
     this.state = {
-      locations: []
+      data: []
     }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
-    axios.get('/api/locations')
-      .then(res => this.setState({ locations: res.data}))
+    axios.get('/api/books')
+      .then(res => this.setState({ data: res.data}))
+  }
+
+  handleChange({target: { name, value }}) {
+    const data = {...this.state.data, [name]: value }
+    this.setState({ data })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    axios
+      .then(() => this.props.history.push('/books'))
   }
 
   render() {
@@ -24,8 +38,6 @@ class Form extends React.Component {
               className="input"
               name="location"
               placeholder="Location..."
-              onChange={this.state.handleChange}
-              value={this.state.location || ''}
             />
           </div>
         </div>
@@ -35,8 +47,6 @@ class Form extends React.Component {
               className="input"
               name="author"
               placeholder="Author..."
-              onChange={this.state.handleChange}
-              value={this.state.author || ''}
             />
           </div>
         </div>
@@ -46,8 +56,6 @@ class Form extends React.Component {
               className="input"
               name="genre"
               placeholder="Genre..."
-              onChange={this.state.handleChange}
-              value={this.state.genre || ''}
             />
           </div>
         </div>
@@ -57,8 +65,6 @@ class Form extends React.Component {
               className="input"
               name="title"
               placeholder="Title..."
-              onChange={this.state.handleChange}
-              value={this.state.title || ''}
             />
           </div>
         </div>

@@ -16,15 +16,13 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-
-          <Navbar />
-          <Switch>
-            <Route path="/books" component={Index} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route exact path="/" component={Home} />
-          </Switch>
-
+        <Navbar />
+        <Switch>
+          <Route path="/bo7oks" component={Index} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Home} />
+        </Switch>
       </BrowserRouter>
     )
   }
