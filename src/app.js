@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import 'bulma'
 
 import Navbar from './components/common/Navbar'
+import Home from './components/common/Home'
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 
 class App extends React.Component {
   render() {
@@ -13,6 +16,11 @@ class App extends React.Component {
       <BrowserRouter>
         <main>
           <Navbar />
+          <Switch>
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route exact path="/" component={Home} />
+          </Switch>
         </main>
       </BrowserRouter>
     )
