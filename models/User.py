@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import bcrypt
 import jwt
-from pony.orm import Required, Set
+from pony.orm import Required
 from marshmallow import Schema, fields, post_load, validates_schema, ValidationError
 from app import db
 from config.environment import secret

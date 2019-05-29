@@ -141,11 +141,13 @@ with db_session():
     )
 
     Review(
+    title='Book Review 1',
     content='Loved this book!',
     book=the_miniaturist
     )
 
     Review(
+    title='Book Review 2',
     content='AMAZING!',
     book=all_the_light_we_cannot_see
     )

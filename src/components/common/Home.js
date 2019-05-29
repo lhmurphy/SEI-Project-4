@@ -15,7 +15,10 @@ class Home extends React.Component{
     return(
       <div className="home">
         <div className="container full-height">
-          <h1>HELLOW!</h1>
+          <div className="columns">
+            <div className="column is-two-fifths">is-two-fifths</div>
+            <div className="column">Auto</div>
+          </div>
         </div>
       </div>
     )
