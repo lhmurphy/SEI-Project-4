@@ -2,6 +2,7 @@ from pony.orm import db_session
 from app import db
 from models.Book import Book
 from models.Location import Location
+from models.Review import Review
 
 db.drop_all_tables(with_all_data=True)
 db.create_tables()
@@ -19,7 +20,7 @@ with db_session():
     chile = Location(name='Chile')
     copenhagen = Location(name='Copenhagen')
 
-    Book(
+    the_miniaturist = Book(
     title="The Miniaturist",
     author="Jessie Burton",
     isbn="0062306845",
@@ -31,7 +32,7 @@ with db_session():
     locations=[amsterdam]
     )
 
-    Book(
+    all_the_light_we_cannot_see = Book(
     title="All the Light We Cannot See",
     author="Anthony Doerr",
     isbn="1501173219",
@@ -43,7 +44,7 @@ with db_session():
     locations=[paris]
     )
 
-    Book(
+    in_cold_blood = Book(
     title="In Cold Blood",
     author="Truman Capote",
     isbn="0679745580",
@@ -55,7 +56,7 @@ with db_session():
     locations=[kansas]
     )
 
-    Book(
+    one_hundred_years_of_solitude = Book(
     title="One Hundred Years of Solitude",
     author="Gabriel García Márquez",
     isbn="1000",
@@ -67,7 +68,7 @@ with db_session():
     locations=[colombia]
     )
 
-    Book(
+    the_tobacconist = Book(
     title="The Tobacconist",
     author="Robert Seethaler",
     isbn="1770899650",
@@ -79,7 +80,7 @@ with db_session():
     locations=[austria]
     )
 
-    Book(
+    ali_and_nino_a_love_story = Book(
     title="Ali and Nino: A Love Story",
     author="Kurban Said",
     isbn="1468314408",
@@ -91,7 +92,7 @@ with db_session():
     locations=[azerbaijan]
     )
 
-    Book(
+    war_and_turpentine = Book(
     title="War and Turpentine",
     author="Stefan Hertmans",
     isbn="0099598043",
@@ -103,7 +104,7 @@ with db_session():
     locations=[belgium]
     )
 
-    Book(
+    treasures_of_the_thunder_dragon_a_portrait_of_bhutan = Book(
     title="Treasures of the Thunder Dragon: A Portrait of Bhutan",
     author="Queen of Bhutan Ashi Dorji Wangmo Wangchuck",
     isbn="0670999016",
@@ -115,7 +116,7 @@ with db_session():
     locations=[bhutan]
     )
 
-    Book(
+    la_casa_de_los_espiritus_the_house_of_the_spirits = Book(
     title="La Casa de Los Espiritus: The House of the Spirits",
     author="Isabel Allende",
     isbn="10001",
@@ -127,7 +128,7 @@ with db_session():
     locations=[chile]
     )
 
-    Book(
+    smillas_sense_of_snow = Book(
     title="Smilla’s Sense of Snow",
     author="Peter Hoeg",
     isbn="0385315147",
@@ -137,6 +138,16 @@ with db_session():
     description="Smilla's Sense of Snow presents one of the toughest heroines in modern fiction. Smilla Qaavigaaq Jaspersen is part Inuit, but she lives in Copenhagen. She is thirty-seven, single, childless, moody, and she refuses to fit in. Smilla's six-year-old Inuit neighbor, Isaiah, manages only with a stubbornness that matches her own to befriend her. When Isaiah falls off a roof and is killed, Smilla doesn't believe it's an accident. She has seen his tracks in the snow, and she knows about snow. She decides to investigate and discovers that even the police don't want her to get involved. But opposition appeals to Smilla. As all of Copenhagen settles down for a quiet Christmas, Smilla's investigation takes her from a fervently religious accountant to a tough-talking pathologist and an alcoholic shipping magnate and into the secret files of the Danish company responsible for extracting most of Greenland's mineral wealth - and finally onto a ship with an international cast of villains bound for a mysterious mission on an uninhabitable island off Greenland. To read Smilla's Sense of Snow is to be taken on a magical, nerve-shattering journey - from the snow-covered streets of Copenhagen to the awesome beauty of the Arctic ice caps. A mystery, a love story, and an elegy for a vanishing way of life, Smilla's Sense of Snow is a breathtaking achievement, an exceptional feat of storytelling.",
     fiction=True,
     locations=[copenhagen]
+    )
+
+    Review(
+    content='Loved this book!',
+    book=the_miniaturist
+    )
+
+    Review(
+    content='AMAZING!',
+    book=all_the_light_we_cannot_see
     )
 
     # save the data to the database

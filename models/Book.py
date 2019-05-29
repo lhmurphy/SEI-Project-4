@@ -1,4 +1,4 @@
-from pony.orm import Required, Optional, Set
+from pony.orm import Required, Set
 from app import db
 from marshmallow import Schema, fields
 
@@ -12,7 +12,7 @@ class Book(db.Entity):
     description = Required(str)
     fiction = Required(bool)
     locations = Set('Location')
-    review = Optional(str)
+    reviews = Set('Review')
 
 class BookSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -25,4 +25,4 @@ class BookSchema(Schema):
     description = fields.Str(required=True)
     fiction = fields.Bool(required=True)
     locations = fields.Nested('LocationSchema', many=True, exclude=('books', ))
-    review = fields.Str(required=False)
+    reviews = fields.Nested('ReviewSchema', many=True)
