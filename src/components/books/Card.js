@@ -4,7 +4,9 @@ const Card = ({ title, author, genre, jacket }) => {
 
   return (
     <div className="card is-shady">
-      <p>{jacket}</p>
+      <figure className="image is-64x64">
+        <img src={jacket} alt={title} />
+      </figure>
       <p>{title}</p>
       <p>{author}</p>
       <p>{genre}</p>
