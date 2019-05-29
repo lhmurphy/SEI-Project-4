@@ -34,7 +34,7 @@ class Register extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <h2 className="titleh2 is-fullwidth-desktop">Register.. </h2>
+          <h2 className="titleh2 is-fullwidth-desktop">Register... </h2>
 
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
