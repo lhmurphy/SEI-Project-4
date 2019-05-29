@@ -3,6 +3,7 @@ from pony.orm import db_session
 from marshmallow import ValidationError
 from app import db
 from models.Book import Book, BookSchema
+from lib.secure_route import secure_route
 
 router = Blueprint(__name__, 'books')
 
@@ -15,6 +16,7 @@ def index():
 
 @router.route('/books', methods=['POST'])
 @db_session
+@secure_route
 def create():
     schema = BookSchema()
 
@@ -40,6 +42,7 @@ def show(book_id):
 
 @router.route('/books/<int:book_id>', methods=['PUT'])
 @db_session
+@secure_route
 def update(book_id):
     schema = BookSchema()
     book = Book.get(id=book_id)
@@ -58,6 +61,7 @@ def update(book_id):
 
 @router.route('/books/<int:book_id>', methods=['DELETE'])
 @db_session
+@secure_route
 def delete(book_id):
     book = Book.get(id=book_id)
 
