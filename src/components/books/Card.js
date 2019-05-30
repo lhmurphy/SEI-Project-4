@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = ({ title, author, genre, jacket }) => {
+const Card = ({ title, author, genre, jacket, review }) => {
 
   return (
     <div className="card is-horizontal columns">
@@ -11,6 +11,7 @@ const Card = ({ title, author, genre, jacket }) => {
         <p className="card-header-title">{title}</p>
         <p>{author}</p>
         <p>{genre}</p>
+        <p>{review}</p>
 
       </div>
     </div>
