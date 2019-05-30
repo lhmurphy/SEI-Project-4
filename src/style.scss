@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Questrial', sans-serif;
 }
 
 body {
@@ -17,4 +20,21 @@ body {
 
 #quote {
   height: 25px;
+  background-color: white;
+  color: #303030;
+  text-align: center;
+  padding: 40px 0 70px 0;
+  font-size: 30px;
+}
+
+.select {
+  margin: 15px;
+}
+
+img {
+  max-width: 150px;
+}
+
+.card {
+  margin: 15px;
 }

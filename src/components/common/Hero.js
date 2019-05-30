@@ -2,9 +2,9 @@ import React from 'react'
 
 const Quote = () => {
   return (
-    <section className="section">
+    <section className="section" id="quote">
       <div className="container">
-        <h1 className="quote">Never trust anyone who has not brought a book with them.” – Lemony Snicket</h1>
+        <h1>Never trust anyone who has not brought a book with them.” – Lemony Snicket</h1>
       </div>
     </section>
   )

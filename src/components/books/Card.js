@@ -3,13 +3,16 @@ import React from 'react'
 const Card = ({ title, author, genre, jacket }) => {
 
   return (
-    <div className="card is-shady">
-      <figure className="image is-64x64">
+    <div className="card is-horizontal columns">
+      <figure className="image is-128x128px">
         <img src={jacket} alt={title} />
       </figure>
-      <p>{title}</p>
-      <p>{author}</p>
-      <p>{genre}</p>
+      <div className="card-content">
+        <p className="card-header-title">{title}</p>
+        <p>{author}</p>
+        <p>{genre}</p>
+
+      </div>
     </div>
   )
 }
