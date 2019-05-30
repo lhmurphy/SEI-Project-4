@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom'
 import Promise from 'bluebird'
 
 import Card from './Card'
+import Hero from './../common/Hero'
 
 class Index extends React.Component {
 
   constructor() {
     super()
+
+    this.state = {
+      locationId: ''
+    }
 
     this.handleChange = this.handleChange.bind(this)
   }
@@ -26,6 +31,10 @@ class Index extends React.Component {
   }
 
   filterBooks() {
+    if(!this.state.locationId) {
+      return this.state.books
+    }
+
     return this.state.books.filter(book => {
       const locationIds = book.locations.map(location => location.id)
 
@@ -34,19 +43,23 @@ class Index extends React.Component {
   }
 
   render() {
-    if(!this.state) return null
+    if(!this.state.books) return null
+    console.log(this.state.books)
     return (
       <main>
+        <Hero />
         <section className="section">
-          <div className="container" id='books-show'>
+          <div className="container">
             <div className="columns is-multiline">
-              <div className="field">
+              <div className="field" id="books-show">
                 <div className="control">
                   <div className="select">
                     <select
                       name="location"
                       onChange={this.handleChange}
                     >
+                      <option value="">All
+                      </option>
                       {this.state.locations.map(location =>
                         <option key={location.id} value={location.id}>{location.name}</option>
                       )}

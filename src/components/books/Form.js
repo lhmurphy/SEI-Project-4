@@ -25,7 +25,7 @@ class Form extends React.Component {
   }
 
   handleChange(e) {
-    
+
   }
 
   handleSubmit(e) {
