@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 
 import 'bulma'
 import './style.scss'
 
+import Show from './components/books/Show'
 import Index from './components/books/Index'
 import Navbar from './components/common/Navbar'
 import Home from './components/common/Home'
@@ -15,17 +16,18 @@ import Login from './components/auth/Login'
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <main>
           <Switch>
+            <Route path="/books/:id" component={Show} />
             <Route path="/books" component={Index} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route exact path="/" component={Home} />
           </Switch>
         </main>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
 }

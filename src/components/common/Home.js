@@ -33,6 +33,7 @@ class Home extends React.Component{
             </div>
           </div>
         </div>
+        <button className="buttonNew">Add a book</button>
       </div>
     )
   }
