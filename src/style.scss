@@ -7,20 +7,20 @@
 
 body {
   overflow-x: hidden;
-  background-color: grey;
+  background-color: white;
   min-height: 100vh;
   min-width: 100vw;
   margin: 0;
 }
 
-#books-show {
+#books-index {
   width: 80%;
   margin: 0 10%;
 }
 
 #quote {
   height: 25px;
-  background-color: white;
+  background-color: #F9F9F9;
   color: #303030;
   text-align: center;
   padding: 40px 0 70px 0;
@@ -37,10 +37,30 @@ img {
 
 .card {
   margin: 15px;
+  padding: 30px;
+  background-color: #F9F9F9;
 }
 
 .book-button {
   display: flex;
   justify-content: center;
   margin: 30px 0 0 0;
+}
+
+#books-show {
+  width: 80%;
+  margin: 20px auto;
+  height: 400px;
+  align-items: center;
+  padding: 50px;
+  background-color: #F9F9F9;
+}
+
+#comments {
+  width: 80%;
+  margin: auto;
+  height: 400px;
+  align-items: center;
+  padding: 10px 90px;
+  background-color: #F9F9F9;
 }

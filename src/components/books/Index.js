@@ -57,7 +57,7 @@ class Index extends React.Component {
         <section className="section">
           <div className="container">
             <div className="columns is-multiline">
-              <div className="field" id="books-show">
+              <div className="field" id="books-index">
                 <div className="control">
                   <div className="select">
                     <select
