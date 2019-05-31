@@ -144,5 +144,15 @@ with db_session():
     book=the_miniaturist
     )
 
+    Review(
+    content="Best book ever, loves it!",
+    book=the_miniaturist
+    )
+
+    Review(
+    content="I'll be recommending this book to all my friends!",
+    book=all_the_light_we_cannot_see
+    )
+
     # save the data to the database
     db.commit()
