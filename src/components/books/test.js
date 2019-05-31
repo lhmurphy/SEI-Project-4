@@ -108,3 +108,16 @@ class LocationIndex extends React.Component {
 
 
 export default LocationIndex
+
+
+// Map over comments
+// {comments.map(comment => {
+//    return(
+//      <div key={comment._id}>
+//        <p><strong>{comment.name}</strong></p>
+//        <StarRatings width={comment.rating} />
+//        <p className="comment-body">{comment.body}</p>
+//        <hr />
+//      </div>
+//    )
+//   })}

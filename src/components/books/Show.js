@@ -10,7 +10,7 @@ class Show extends React.Component {
     super()
 
     this.state = {
-      books: null
+      books: ''
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -24,6 +24,10 @@ class Show extends React.Component {
       .then(data => this.setState({ books: data.books, reviews: data.reviews }))
   }
 
+  filteredReviews(){
+    return this.state.reviews.filter(review => review.book.id === this.state.books.id)
+  }
+
   handleDelete() {
     axios.delete(`/api/books/${this.props.match.params.id}`, {
     })
@@ -32,7 +36,7 @@ class Show extends React.Component {
 
   render() {
     if(!this.state.books) return null
-    console.log(this.state.reviews[0])
+    console.log(this.state.reviews)
 
     return (
       <section className="section">
@@ -58,10 +62,33 @@ class Show extends React.Component {
           </div>
           <div className="card is-horizontal columns" id="books-show">
             <p className="card-header-title">Reviews</p>
-
+            {this.filteredReviews().map(review =>
+              <option key={review.id} value={review.id}>{review.content}</option>
+            )}
 
           </div>
         </div>
+        <article className="media">
+          <figure className="media-left">
+            <p className="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png" />
+            </p>
+          </figure>
+          <div className="media-content">
+            <div className="field">
+              <p className="control">
+                <textarea className="textarea" placeholder="Add a comment..."></textarea>
+              </p>
+            </div>
+            <nav className="level">
+              <div className="level-left">
+                <div className="level-item">
+                  <a className="button is-info">Submit</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </article>
       </section>
     )
   }

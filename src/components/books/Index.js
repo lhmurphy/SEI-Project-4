@@ -70,6 +70,8 @@ class Index extends React.Component {
                         <option key={location.id} value={location.id}>{location.name}</option>
                       )}
                     </select>
+                    <p> Featured reads...</p>
+
                   </div>
                   {this.filterBooks().map(book =>
                     <div key={book.id} className="column is-full-desktop is-full-tablet">
