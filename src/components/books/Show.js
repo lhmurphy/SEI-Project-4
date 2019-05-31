@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import Auth from '../../lib/Auth'
+const token = Auth.getToken()
 
 class Show extends React.Component {
 
@@ -13,11 +14,22 @@ class Show extends React.Component {
     }
 
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
     axios.get(`/api/books/${this.props.match.params.id}`)
       .then(res => this.setState({ books: res.data }))
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    this.setState({ books: e.target.value })
+
+    axios.post(`/api/books/${this.props.match.params.id}/reviews`, this.state.data, {
+      headers: { 'Authorization': `Bearer ${token}`}
+    })
+      .then(() => this.props.history.push(`/api/books/${this.props.match.params.id}`))
   }
 
   handleDelete() {
@@ -28,7 +40,7 @@ class Show extends React.Component {
 
   render() {
     if(!this.state.books) return null
-    console.log(this.state.reviews)
+    console.log(this.state.books)
 
     return (
       <section className="section">
@@ -75,7 +87,8 @@ class Show extends React.Component {
             <nav className="level">
               <div className="level-left">
                 <div className="level-item">
-                  <a className="button is-info">Submit</a>
+                  <button className="button is-info" onClick={this.handleSubmit}>Submit</button>
+
                 </div>
               </div>
             </nav>

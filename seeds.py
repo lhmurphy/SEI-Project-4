@@ -2,11 +2,18 @@ from pony.orm import db_session
 from app import db
 from models.Book import Book, Review
 from models.Location import Location
+from models.User import User
 
 db.drop_all_tables(with_all_data=True)
 db.create_tables()
 
 with db_session():
+
+    user1 = User(
+    username='Laura',
+    email='lhmurphy@hotmail.com',
+    password_hash='hello'
+    )
 
     amsterdam = Location(name='Amsterdam')
     paris = Location(name='Paris')
@@ -141,17 +148,20 @@ with db_session():
 
     Review(
     content="BRILLIANT!",
-    book=the_miniaturist
+    book=the_miniaturist,
+    user=user1
     )
 
     Review(
     content="Best book ever, loves it!",
-    book=the_miniaturist
+    book=the_miniaturist,
+    user=user1
     )
 
     Review(
     content="I'll be recommending this book to all my friends!",
-    book=all_the_light_we_cannot_see
+    book=all_the_light_we_cannot_see,
+    user=user1
     )
 
     # save the data to the database

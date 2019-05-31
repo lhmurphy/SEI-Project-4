@@ -9,12 +9,14 @@ class Review(db.Entity):
     content = Required(str)
     book = Required('Book')
     created_at = Required(datetime, default=datetime.utcnow)
+    user = Required('User')
 
 class ReviewSchema(Schema):
     id = fields.Int(dump_only=True)
     content = fields.Str(required=True)
     book = fields.Nested('BookSchema', exclude=('reviews', ))
     created_at = fields.DateTime(format='%Y-%m-%d %H:%M:%S')
+    user = fields.Nested('UserSchema', exclude=('books', ))
     # likes =
     # user
     # rating

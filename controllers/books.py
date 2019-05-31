@@ -73,9 +73,9 @@ def delete(book_id):
 
     return '', 204
 
-@router.route('/books/<int:book_id>/books', methods=['POST'])
-@secure_route
+@router.route('/books/<int:book_id>/reviews', methods=['POST'])
 @db_session
+@secure_route
 def create_review(book_id):
     book_schema = BookSchema()
     review_schema = ReviewSchema()
@@ -89,12 +89,12 @@ def create_review(book_id):
     Review(**data, book=book, user=g.current_user)
     db.commit()
 
-    return book_schema.dumps(book)
+    return book_schema.dumps(book), 201
 
 
-@router.route('/books/<int:book_id>/books/<int:review_id>', methods=['DELETE'])
-@secure_route
+@router.route('/books/<int:book_id>/reviews/<int:review_id>', methods=['DELETE'])
 @db_session
+@secure_route
 def delete_review(book_id, review_id):
 
     schema = BookSchema()
