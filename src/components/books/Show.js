@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import Promise from 'bluebird'
 
 
 class Show extends React.Component {
@@ -10,22 +9,15 @@ class Show extends React.Component {
     super()
 
     this.state = {
-      books: ''
+      books: null
     }
 
     this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
-    Promise.props({
-      books: axios.get(`/api/books/${this.props.match.params.id}`).then(res => res.data),
-      reviews: axios.get('/api/reviews').then(res => res.data)
-    })
-      .then(data => this.setState({ books: data.books, reviews: data.reviews }))
-  }
-
-  filteredReviews(){
-    return this.state.reviews.filter(review => review.book.id === this.state.books.id)
+    axios.get(`/api/books/${this.props.match.params.id}`)
+      .then(res => this.setState({ books: res.data }))
   }
 
   handleDelete() {
@@ -62,7 +54,7 @@ class Show extends React.Component {
           </div>
           <div className="card is-horizontal columns" id="books-show">
             <p className="card-header-title">Reviews</p>
-            {this.filteredReviews().map(review =>
+            {this.state.books.reviews.map(review =>
               <option key={review.id} value={review.id}>{review.content}</option>
             )}
 

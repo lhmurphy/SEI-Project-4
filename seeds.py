@@ -1,8 +1,7 @@
 from pony.orm import db_session
 from app import db
-from models.Book import Book
+from models.Book import Book, Review
 from models.Location import Location
-from models.Review import Review
 
 db.drop_all_tables(with_all_data=True)
 db.create_tables()
@@ -141,15 +140,8 @@ with db_session():
     )
 
     Review(
-    title='Book Review 1',
-    content='Loved this book!',
+    content="BRILLIANT!",
     book=the_miniaturist
-    )
-
-    Review(
-    title='Book Review 2',
-    content='AMAZING!',
-    book=all_the_light_we_cannot_see
     )
 
     # save the data to the database

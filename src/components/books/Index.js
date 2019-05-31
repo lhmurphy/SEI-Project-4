@@ -22,8 +22,7 @@ class Index extends React.Component {
   componentDidMount() {
     Promise.props({
       books: axios.get('/api/books').then(res => res.data),
-      locations: axios.get('/api/locations').then(res => res.data),
-      reviews: axios.get('/api/reviews').then(res => res.data)
+      locations: axios.get('/api/locations').then(res => res.data)
     })
       .then(data => this.setState({ books: data.books, locations: data.locations, reviews: data.reviews }))
   }

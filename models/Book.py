@@ -1,9 +1,24 @@
+from datetime import datetime
 from pony.orm import Required, Set
 from app import db
 from marshmallow import Schema, fields, post_load
 
 from .Location import Location
-from .Review import Review
+
+class Review(db.Entity):
+    content = Required(str)
+    book = Required('Book')
+    created_at = Required(datetime, default=datetime.utcnow)
+
+class ReviewSchema(Schema):
+    id = fields.Int(dump_only=True)
+    content = fields.Str(required=True)
+    book = fields.Nested('BookSchema', exclude=('reviews', ))
+    created_at = fields.DateTime(format='%Y-%m-%d %H:%M:%S')
+    # likes =
+    # user
+    # rating
+
 
 class Book(db.Entity):
     title = Required(str, unique=True)
