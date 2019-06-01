@@ -1,5 +1,5 @@
 from datetime import datetime
-from pony.orm import Required, Set
+from pony.orm import Required, Set, Optional
 from app import db
 from marshmallow import Schema, fields, post_load
 
@@ -25,12 +25,12 @@ class ReviewSchema(Schema):
 class Book(db.Entity):
     title = Required(str, unique=True)
     author = Required(str)
-    isbn = Required(int, unique=True)
+    isbn = Required(str, unique=True)
     genre = Required(str)
     date = Required(int)
     jacket = Required(str, unique=True)
     description = Required(str)
-    fiction = Required(bool)
+    fiction = Optional(bool)
     locations = Set('Location')
     reviews = Set('Review')
 
@@ -38,7 +38,7 @@ class BookSchema(Schema):
     id = fields.Int(dump_only=True)
     title = fields.Str(required=True)
     author = fields.Str(required=True)
-    isbn = fields.Int(required=True)
+    isbn = fields.Str(required=True)
     genre = fields.Str(required=True)
     date = fields.Int(required=True)
     jacket = fields.Str(required=True)

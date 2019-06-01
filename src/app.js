@@ -7,6 +7,7 @@ import 'bulma'
 import './style.scss'
 
 import Show from './components/books/Show'
+import New from './components/books/New'
 import Index from './components/books/Index'
 import Navbar from './components/common/Navbar'
 import Home from './components/common/Home'
@@ -20,6 +21,7 @@ class App extends React.Component {
         <Navbar />
         <main>
           <Switch>
+            <Route path="/books/new" component={New} />
             <Route path="/books/:id" component={Show} />
             <Route path="/books" component={Index} />
             <Route path="/register" component={Register} />

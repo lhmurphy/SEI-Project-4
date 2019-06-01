@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Promise from 'bluebird'
+import Auth from '../../lib/Auth'
 
 import Card from './Card'
 
@@ -48,7 +49,7 @@ class Index extends React.Component {
     return (
       <main>
         <div className="book-button">
-          <a className="button">Add a book</a>
+          {Auth.isAuthenticated() && <Link to="/books/new" className="button is-danger">Add a book</Link>}
         </div>
         <section className="section">
           <div className="container">
