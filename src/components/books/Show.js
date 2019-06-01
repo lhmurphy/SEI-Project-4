@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Auth from '../../lib/Auth'
-const token = Auth.getToken()
 
 class Show extends React.Component {
 
@@ -34,14 +33,17 @@ class Show extends React.Component {
     e.preventDefault()
 
     axios.post(`/api/books/${this.props.match.params.id}/reviews`, this.state.data, {
-      headers: { 'Authorization': `Bearer ${token}`}
+      headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
     })
       .then(res => this.setState({ book: res.data }))
+
+      .then(() => this.setState({ content: '' }))
+
   }
 
   handleDelete() {
     axios.delete(`/api/books/${this.props.match.params.id}`, {
-      headers: { 'Authorization': `Bearer ${token}`}
+      headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
     })
       .then(() => this.props.history.push('/books'))
   }
@@ -80,6 +82,8 @@ class Show extends React.Component {
             )}
           </div>
         </div>
+
+
         <article className="media">
           <figure className="media-left">
             <p className="image is-64x64">

@@ -1,5 +1,7 @@
 import React from 'react'
-import axios from 'axios'
+import Auth from '../../lib/Auth'
+import { Link } from 'react-router-dom'
+
 
 class Home extends React.Component{
   constructor(props) {
@@ -20,7 +22,13 @@ class Home extends React.Component{
             <div className="column">
               <h1>Welcome to Wanderlist</h1>
               <p>
-              When you're planning your next trip...
+                Travelling somewhere? Match your next read to your destination with Wanderlist. Books set in locations around the world!...
+                <br />
+                {!Auth.isAuthenticated() && <Link to="/register" className="button is-danger">Register</Link>}
+                {!Auth.isAuthenticated() && <Link to="/login" className="button is-danger">Login</Link>}
+                <br />
+                {Auth.isAuthenticated() && <Link to="/books" className="button is-danger">Browse books...</Link>}
+
               </p>
             </div>
           </div>

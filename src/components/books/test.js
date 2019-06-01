@@ -43,67 +43,7 @@ class LocationIndex extends React.Component {
   }
 
   render() {
-    if (!this.props) return <h1>Loading...</h1>
-    return (
-      <div className="locationsIndex">
-        <Select
-          defaultValue={areasOfLondon[0]}
-          options={areasOfLondon}
-          name="areaOfLondon"
-          onChange={this.handleChange}
-          className="filterSelect"
-        />
-        <hr />
-        {this.filteredLocations().map(location =>
-          <div key={location._id} id={location._id}>
-            {// -----ITEMS ARE ALWAYS VISIBILE-----}
-            }
-            <div
-              className="locationsContainer"
-              onClick={() => this.props.toggleActiveLocation(location)}
-            >
-              <div className="title is-4">{location.name}</div>
-              <div className="subtitle is-6">{location.areaOfLondon}</div>
-              <div className="location-image"
-                data-lat={location.coordinates.lat}
-                data-lng={location.coordinates.lng}
-                onClick={this.props.handleLocationClick}
-                style={{ backgroundImage: `url(${location.image})` }} >
-              </div>
-              <div className="address is-size-6"> {`${location.streetAddress}, ${location.postCode}`}
-              </div>
-            </div>
 
-            {// -----ITEMS ARE HIDDEN ON LOAD AND APPEAR ON CLICK-----
-            }
-            <div className={`locationShow${this.props.activeLocation !== location ? '' : ' show' }`}
-              onClick={() => this.props.toggleActiveLocation(location)}>
-              <div className="subtitle is-size-6">Films and notes</div>
-              {location.sceneNotes.map(note =>
-                <div key={note._id} className="note-wrapper">
-                  <hr />
-                  <div className="columns is-mobile">
-                    <div className="column">
-                      <img src={note.film.image} />
-                    </div>
-                    <div className="column is-four-fifths">
-                      <div className="subtitle is-size-5 has-text-weight-bold indexTitle">
-                        {note.film.title}
-                      </div>
-                      <p className="is-5">
-                        {note.text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            <hr className="dark-hr" />
-          </div>
-        )}
-      </div>
-    )
-  }
 }
 
 
@@ -121,3 +61,23 @@ export default LocationIndex
 //      </div>
 //    )
 //   })}
+
+
+
+{comments.map(comment =>
+                <article key={comment.id} className="media">
+                  <figure className="media-left">
+                    <p className="image is-64x64">
+                      <img src={comment.user.image} />
+                    </p>
+                  </figure>
+                  <div className="media-content">
+                    <div className="content">
+                      <p className="commentText">
+                        <strong>{comment.user.username}</strong>  <small>{comment.created_at.substring(0, comment.created_at.length - 8)}</small>
+                        <br />
+                        {comment.content}
+                      </p>
+                    </div>
+                  </div>
+                </article>}

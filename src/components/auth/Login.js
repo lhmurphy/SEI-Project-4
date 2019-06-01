@@ -30,7 +30,7 @@ class Login extends React.Component {
       .post('/api/login', this.state.data)
       .then((res) => {
         Auth.setToken(res.data.token)
-        this.props.history.push('/books')
+        this.props.history.push('/')
       })
       .catch(() => this.setState({ error: 'Incorrect Credentials' }))
   }

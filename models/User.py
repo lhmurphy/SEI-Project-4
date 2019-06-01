@@ -21,7 +21,8 @@ class User(db.Entity):
         payload = {
             'exp': datetime.utcnow() + timedelta(hours=6),
             'iat': datetime.utcnow(),
-            'sub': self.id
+            'sub': self.id,
+            'image': self.image
         }
 
         token = jwt.encode(
