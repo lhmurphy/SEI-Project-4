@@ -14,6 +14,7 @@ class Navbar extends React.Component {
   }
 
   logout() {
+    Auth.removeToken()
     this.props.history.push('/')
   }
 
@@ -55,9 +56,9 @@ class Navbar extends React.Component {
           <div className={`navbar-menu${this.state.active ? ' is-active' : ''}`}>
 
             <div className="navbar-end">
-              <Link to="/register" className="navbar-item">Register</Link>
+              {!Auth.isAuthenticated() && <Link to="/register" className="navbar-item">Register</Link>}
               {!Auth.isAuthenticated() && <Link to="/login" className="navbar-item">Login</Link>}
-              {!Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
+              {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
             </div>
           </div>
         </div>

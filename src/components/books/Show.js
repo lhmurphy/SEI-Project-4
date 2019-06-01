@@ -15,6 +15,8 @@ class Show extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+
   }
 
   componentDidMount() {
@@ -22,11 +24,16 @@ class Show extends React.Component {
       .then(res => this.setState({ books: res.data }))
   }
 
+  handleChange(e) {
+    const data = { ...this.state.books, [e.target.name]: e.target.value }
+    this.setState({ data })
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     this.setState({ books: e.target.value })
 
-    axios.post(`/api/books/${this.props.match.params.id}/reviews`, this.state.data, {
+    axios.post(`/api/books/${this.props.match.params.id}/reviews`, this.state.books, {
       headers: { 'Authorization': `Bearer ${token}`}
     })
       .then(() => this.props.history.push(`/api/books/${this.props.match.params.id}`))
@@ -81,7 +88,7 @@ class Show extends React.Component {
           <div className="media-content">
             <div className="field">
               <p className="control">
-                <textarea className="textarea" placeholder="Add a comment..."></textarea>
+                <textarea className="textarea" onChange={this.handleChange} placeholder="Add a comment..."></textarea>
               </p>
             </div>
             <nav className="level">
