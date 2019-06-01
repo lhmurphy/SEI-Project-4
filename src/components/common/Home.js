@@ -19,11 +19,6 @@ class Home extends React.Component{
         <div className="container full-height">
           <div className="columns">
             <div className="column is-two-fifths">
-              <Form
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                data={this.state.data}
-              />
             </div>
             <div className="column">
               <h1>Welcome to Wanderlist</h1>
@@ -40,3 +35,20 @@ class Home extends React.Component{
 }
 
 export default Home
+
+
+
+
+
+
+
+
+
+
+
+
+// <Form
+// handleChange={this.handleChange}
+// handleSubmit={this.handleSubmit}
+// data={this.state.data}
+// />

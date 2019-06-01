@@ -49,7 +49,6 @@ class Index extends React.Component {
     console.log(this.state.reviews)
     return (
       <main>
-        <Hero />
         <div className="book-button">
           <a className="button">Add a book</a>
         </div>
