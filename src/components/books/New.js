@@ -24,7 +24,7 @@ class BooksNew extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
 
-    axios.post(`/api/books/${this.props.match.params.id}`, this.state.data, {
+    axios.post('/api/books', this.state.data, {
       headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
     })
       .then(() => this.props.history.push('/books'))
@@ -78,6 +78,17 @@ class BooksNew extends React.Component {
                       className="input"
                       name="genre"
                       placeholder="eg: Fantasy"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label">Publication year</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="date"
+                      placeholder="eg: 1990"
                       onChange={this.handleChange}
                     />
                   </div>
