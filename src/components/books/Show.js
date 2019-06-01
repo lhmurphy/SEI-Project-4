@@ -10,7 +10,8 @@ class Show extends React.Component {
     super()
 
     this.state = {
-      books: null
+      book: null,
+      data: {}
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -21,47 +22,48 @@ class Show extends React.Component {
 
   componentDidMount() {
     axios.get(`/api/books/${this.props.match.params.id}`)
-      .then(res => this.setState({ books: res.data }))
+      .then(res => this.setState({ book: res.data }))
   }
 
   handleChange(e) {
-    const data = { ...this.state.books, [e.target.name]: e.target.value }
+    const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    this.setState({ books: e.target.value })
 
-    axios.post(`/api/books/${this.props.match.params.id}/reviews`, this.state.books, {
+    axios.post(`/api/books/${this.props.match.params.id}/reviews`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}`}
     })
-      .then(() => this.props.history.push(`/api/books/${this.props.match.params.id}`))
+      .then(res => this.setState({ book: res.data }))
   }
 
   handleDelete() {
     axios.delete(`/api/books/${this.props.match.params.id}`, {
+      headers: { 'Authorization': `Bearer ${token}`}
     })
       .then(() => this.props.history.push('/books'))
   }
 
   render() {
-    if(!this.state.books) return null
-    console.log(this.state.books)
+    if(!this.state.book) return null
+    if(!this.state.data) return null
+    console.log(this.state.book)
 
     return (
       <section className="section">
         <div className="container">
           <div className="card is-horizontal columns" id="books-show">
             <figure className="image is-128x128px">
-              <img src={this.state.books.jacket} alt={this.state.books.title} />
+              <img src={this.state.book.jacket} alt={this.state.book.title} />
             </figure>
             <div className="card-content">
-              <p className="title is-2">{this.state.books.title}</p>
-              <p>{this.state.books.author}</p>
-              <p>{this.state.books.genre}</p>
-              <p>{this.state.books.review}</p>
-              <Link to={`/books/${this.state.books.id}/edit`} className="button is-primary">Edit</Link>
+              <p className="title is-2">{this.state.book.title}</p>
+              <p>{this.state.book.author}</p>
+              <p>{this.state.book.genre}</p>
+              <p>{this.state.book.review}</p>
+              <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
               <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               <br />
               <button className="button" onClick={this.handleDelete}>Review this book</button>
@@ -69,14 +71,13 @@ class Show extends React.Component {
             </div>
           </div>
           <div className="card is-horizontal columns" id="books-show">
-            <p>{this.state.books.description}</p>
+            <p>{this.state.book.description}</p>
           </div>
-          <div className="card is-horizontal columns" id="books-show">
+          <div className="card" id="books-show">
             <p className="card-header-title">Reviews</p>
-            {this.state.books.reviews.map(review =>
-              <option key={review.id} value={review.id}>{review.content}</option>
+            {this.state.book.reviews.map(review =>
+              <p key={review.id}>{review.content}</p>
             )}
-
           </div>
         </div>
         <article className="media">
@@ -88,7 +89,7 @@ class Show extends React.Component {
           <div className="media-content">
             <div className="field">
               <p className="control">
-                <textarea className="textarea" onChange={this.handleChange} placeholder="Add a comment..."></textarea>
+                <textarea className="textarea" name="content" onChange={this.handleChange} placeholder="Add a comment..." />
               </p>
             </div>
             <nav className="level">
