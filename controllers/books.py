@@ -83,11 +83,11 @@ def create_review(book_id):
 
     try:
         data = review_schema.load(request.get_json())
+        Review(**data, book=book, user=g.current_user)
+        db.commit()
     except ValidationError as err:
         return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
 
-    Review(**data, book=book, user=g.current_user)
-    db.commit()
 
     return book_schema.dumps(book), 201
 
