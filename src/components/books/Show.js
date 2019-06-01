@@ -75,14 +75,25 @@ class Show extends React.Component {
           <div className="card is-horizontal columns" id="books-show">
             <p>{this.state.book.description}</p>
           </div>
-          <div className="card" id="books-show">
-            <p className="card-header-title">Reviews</p>
-            {this.state.book.reviews.map(review =>
-              <p key={review.id}>{review.content}</p>
-            )}
-          </div>
         </div>
+        {this.state.book.reviews.map(review =>
+          <article key={review.id} className="media">
+            <figure className="media-left">
+              <p className="image is-64x64">
+                <img src={review.user.image} />
+              </p>
+            </figure>
+            <div className="media-content">
 
+              <div className="content">
+                <p className="commentText">
+                  <strong>{review.user.username}</strong>  <small>{review.created_at.substring(0, review.created_at.length - 8)}</small>
+                  <br />
+                  {review.content}
+                </p>
+              </div>
+            </div>
+          </article>)}
 
         <article className="media">
           <figure className="media-left">

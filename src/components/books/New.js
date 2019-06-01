@@ -28,6 +28,9 @@ class BooksNew extends React.Component {
       headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
     })
       .then(() => this.props.history.push('/books'))
+      .catch(error => {
+        console.log(error.message)
+      })
 
   }
 
