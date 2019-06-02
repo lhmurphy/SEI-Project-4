@@ -8,8 +8,8 @@ const Card = ({ title, author, genre, jacket, isbn }) => {
         <img src={jacket} alt={title} />
       </figure>
       <div className="card-content">
-        <p className="title is-4">{title}</p>
-        <p>Author: {author}</p>
+        <p className="title is-2">{title}</p>
+        <p className="title is-4">by {author}</p>
         <p>Genre: {genre}</p>
         <p>ISBN: {isbn}</p>
 

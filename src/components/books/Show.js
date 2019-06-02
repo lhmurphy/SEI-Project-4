@@ -39,7 +39,7 @@ class Show extends React.Component {
     })
       .then(res => this.setState({ book: res.data }))
 
-      .then(() => this.setState({ content: '' }))
+      .then(this.setState({ value: '' }))
 
   }
 
@@ -78,30 +78,45 @@ class Show extends React.Component {
       <section className="section">
         <div className="container">
           <div className="card is-horizontal columns" id="books-show">
-            <figure className="image is-128x128px">
-              <img src={this.state.book.jacket} alt={this.state.book.title} />
-            </figure>
             <div className="card-content">
-              <p className="title is-2">{this.state.book.title}</p>
-              <p>{this.state.book.author}</p>
-              <p>{this.state.book.genre}</p>
-              <p>{this.state.book.review}</p>
+              <div className="columns">
+                <div className="card-left">
+                  <div className="column">
+                    <figure className="image is-128x128px">
+                      <img src={this.state.book.jacket} alt={this.state.book.title} />
+                    </figure>
+                  </div>
+                </div>
 
+                <div className="card-right">
+                  <div className="column">
 
-              <div className="buttons">
-                <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
-                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+                    <p className="title is-2">{this.state.book.title}</p>
+                    <p className="title is-4">by {this.state.book.author}</p>
+                    <p>Genre: {this.state.book.genre}</p>
+                    <p>ISBN: {this.state.book.isbn}</p>
+                    <p>Publication year: {this.state.book.year}</p>
+
+                    <div className="buttons">
+                      <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
+                      <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+                    </div>
+                  </div>
+                </div>
+
+                <br />
               </div>
-
-
-              <br />
 
             </div>
           </div>
           <div className="card is-horizontal columns" id="books-show">
-            <p>{this.state.book.description}</p>
+            <div className="card-content">
+              <p>{this.state.book.description}</p>
+            </div>
           </div>
         </div>
+
+
         {this.state.book.reviews.map(review =>
           <article key={review.id} className="media">
             <figure className="media-left">
@@ -110,9 +125,8 @@ class Show extends React.Component {
               </p>
             </figure>
             <div className="media-content">
-
               <div className="content">
-                <p className="commentText">
+                <p className="reviews">
                   <strong>{review.user.username}</strong>
                   <small>{review.created_at.substring(0, review.created_at.length - 8)}</small>
                   <br />

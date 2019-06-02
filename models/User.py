@@ -42,7 +42,7 @@ class UserSchema(Schema):
     password_confirmation = fields.Str(load_only=True)
     books = fields.Nested('BookSchema', many=True, exclude=('user',))
     image = fields.Str()
-    reviews = fields.Nested('ReviewSchema', many=True, exclude=('user',))
+    #reviews = fields.Nested('ReviewSchema', many=True, exclude=('user',))
 
     # basic method
     def generate_hash(self, plaintext):
