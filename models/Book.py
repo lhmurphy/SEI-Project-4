@@ -45,11 +45,14 @@ class BookSchema(Schema):
     description = fields.Str(required=True)
     fiction = fields.Bool(required=False)
     locations = fields.Nested('LocationSchema', many=True, exclude=('books', ))
-    reviews = fields.Nested('ReviewSchema', many=True)
+    location_ids = fields.List(fields.Int(), load_only=True)
+    reviews = fields.Nested('ReviewSchema', many=True, dump_only=True)
+    review_id = fields.Int(load_only=True)
+
 
     @post_load
-    def load_bread(self, data):
-        data['review'] = Review.get(id=data['review'])
+    def load_review(self, data):
+        data['reviews'] = Review.get(id=data['review_id'])
         del data['review_id']
 
         return data

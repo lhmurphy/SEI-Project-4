@@ -10,7 +10,8 @@ class Show extends React.Component {
 
     this.state = {
       book: null,
-      data: {}
+      data: {},
+      review: {}
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -52,6 +53,7 @@ class Show extends React.Component {
     if(!this.state.book) return null
     if(!this.state.data) return null
     console.log(this.state.book)
+    console.log(this.state.book.reviews)
 
     return (
       <section className="section">
@@ -68,7 +70,6 @@ class Show extends React.Component {
               <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
               <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               <br />
-              <button className="button" onClick={this.handleDelete}>Review this book</button>
 
             </div>
           </div>
@@ -87,7 +88,8 @@ class Show extends React.Component {
 
               <div className="content">
                 <p className="commentText">
-                  <strong>{review.user.username}</strong>  <small>{review.created_at.substring(0, review.created_at.length - 8)}</small>
+                  <strong>{review.user.username}</strong>
+                  <small>{review.created_at.substring(0, review.created_at.length - 8)}</small>
                   <br />
                   {review.content}
                 </p>
@@ -96,15 +98,15 @@ class Show extends React.Component {
           </article>)}
 
         <article className="media">
-          <figure className="media-left">
-            <p className="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png" />
-            </p>
-          </figure>
           <div className="media-content">
             <div className="field">
               <p className="control">
-                <textarea className="textarea" name="content" onChange={this.handleChange} placeholder="Add a comment..." />
+                <textarea
+                  className="textarea"
+                  name="content"
+                  onChange={this.handleChange}
+                  placeholder="Add a comment..."
+                />
               </p>
             </div>
             <nav className="level">
