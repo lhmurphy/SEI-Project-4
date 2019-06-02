@@ -77,6 +77,7 @@ class Show extends React.Component {
     return (
       <section className="section">
         <div className="container">
+          <p className="go-back"><Link to="/books"> &larr; back to all books</Link></p>
           <div className="card is-horizontal columns" id="books-show">
             <div className="card-content">
               <div className="columns">
