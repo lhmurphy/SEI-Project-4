@@ -6,6 +6,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import 'bulma'
 import './style.scss'
 
+import FlashMessages from './components/common/FlashMessages'
 import Show from './components/books/Show'
 import New from './components/books/New'
 import Index from './components/books/Index'
@@ -19,6 +20,7 @@ class App extends React.Component {
     return (
       <HashRouter>
         <Navbar />
+        <FlashMessages />
         <main>
           <Switch>
             <Route path="/books/new" component={New} />

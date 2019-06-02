@@ -81,3 +81,22 @@ export default LocationIndex
                     </div>
                   </div>
                 </article>}
+
+
+
+
+
+@router.route('/entries', methods=['POST'])
+@db_session
+@secure_route
+def create():
+    entry_schema = EntrySchema()
+
+    try:
+        data = entry_schema.load(request.get_json())
+        entry = Entry(**data, created_by=g.current_user)
+        db.commit()
+    except ValidationError as err:
+        return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
+
+    return entry_schema.dumps(entry), 201
