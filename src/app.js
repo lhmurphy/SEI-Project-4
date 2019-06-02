@@ -8,6 +8,7 @@ import './style.scss'
 
 import FlashMessages from './components/common/FlashMessages'
 import Show from './components/books/Show'
+import Edit from './components/books/Edit'
 import New from './components/books/New'
 import Index from './components/books/Index'
 import Navbar from './components/common/Navbar'
@@ -24,6 +25,7 @@ class App extends React.Component {
         <main>
           <Switch>
             <Route path="/books/new" component={New} />
+            <Route path="/books/:id/edit" component={Edit} />
             <Route path="/books/:id" component={Show} />
             <Route path="/books" component={Index} />
             <Route path="/register" component={Register} />
