@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Flash from '../../lib/Flash'
+import { Link } from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 
@@ -42,8 +43,6 @@ class Login extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <h2 className="titleh2  is-fullwidth-desktop">{'It\'s time to login... '}</h2>
-
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
@@ -73,8 +72,11 @@ class Login extends React.Component {
                   {this.state.error && <div className="help is-danger">{this.state.error}</div>}
                 </div>
 
-                <button className="buttonNew">Submit</button>
+                <button className="button is-danger">Submit</button>
               </form>
+              <p>If you don't have an account, {!Auth.isAuthenticated() && <Link to="/register">register</Link>} here</p>
+
+
             </div>
           </div>
         </div>

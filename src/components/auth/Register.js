@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
+import { Link } from 'react-router-dom'
+import Auth from '../../lib/Auth'
+
 class Register extends React.Component {
 
   constructor() {
@@ -34,8 +37,6 @@ class Register extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <h2 className="titleh2 is-fullwidth-desktop">Register... </h2>
-
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
@@ -92,6 +93,9 @@ class Register extends React.Component {
                 </div>
                 <button className="buttonNew">Submit</button>
               </form>
+
+              <p>Already have an account? {!Auth.isAuthenticated() && <Link to="/login">login</Link>} here</p>
+
             </div>
           </div>
         </div>
