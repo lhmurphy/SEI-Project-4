@@ -22,6 +22,7 @@ def create():
 
     try:
         data = schema.load(request.get_json())
+        data['user'] = g.current_user
         book = Book(**data)
         db.commit()
     except ValidationError as err:

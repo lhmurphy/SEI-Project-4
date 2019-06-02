@@ -100,3 +100,32 @@ def create():
         return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
 
     return entry_schema.dumps(entry), 201
+
+
+
+
+
+
+
+
+@router.route('/pools', methods=['POST'])
+@db_session
+@secure_route
+def create():
+    # This will deserialize the JSON from insomnia
+    schema = PoolSchema()
+
+    try:
+        # attempt to convert the JSON into a dict
+        data = schema.load(request.get_json())
+        # Use that to create a pool object
+        data['user'] = g.current_user
+        pool = Pool(**data)
+        # Store it in the database
+        db.commit()
+    except ValidationError as err:
+        # if the validation fails, send back a 422 response
+        return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
+
+    # otherwise, send back the pool data as JSON
+    return schema.dumps(pool), 201

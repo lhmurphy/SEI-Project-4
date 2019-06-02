@@ -45,10 +45,7 @@ class BookSchema(Schema):
     description = fields.Str(required=True)
     fiction = fields.Bool(required=False)
     locations = fields.Nested('LocationSchema', many=True, exclude=('books', ))
-    location_ids = fields.List(fields.Int(), load_only=True)
     reviews = fields.Nested('ReviewSchema', many=True, dump_only=True)
-    review_id = fields.Int(load_only=True)
-
 
     @post_load
     def load_review(self, data):
@@ -59,7 +56,7 @@ class BookSchema(Schema):
 
     @post_load
     def load_locations(self, data):
-        data['locations'] = [Location.get(id=location_id) for location_id in data['location_ids']]
+        data['locations'] = [Location.get(id=location_ids) for location_ids in data['location_ids']]
         del data['location_ids']
 
         return data

@@ -11,7 +11,8 @@ class Show extends React.Component {
     this.state = {
       book: null,
       data: {},
-      review: {}
+      review: {},
+      allReviews: ''
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -71,6 +72,7 @@ class Show extends React.Component {
     if(!this.state.data) return null
     console.log(this.state.book)
     console.log(this.state.book.reviews)
+    console.log(this.state.allReviews)
 
     return (
       <section className="section">
