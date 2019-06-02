@@ -49,6 +49,23 @@ class Show extends React.Component {
       .then(() => this.props.history.push('/books'))
   }
 
+  // canModify() {
+  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.user._id
+  // }
+
+  getAllReviews() {
+    let allReviews = [...this.state.books.reviews]
+    allReviews = allReviews.map(review => {
+      review.new_time = new Date(review.time).getTime()
+    }).sort((firstValue, secondValue) => {
+      return firstValue.new_time - secondValue.new_time
+    })
+
+    this.setState({
+      allReviews
+    })
+  }
+
   render() {
     if(!this.state.book) return null
     if(!this.state.data) return null
@@ -67,8 +84,14 @@ class Show extends React.Component {
               <p>{this.state.book.author}</p>
               <p>{this.state.book.genre}</p>
               <p>{this.state.book.review}</p>
-              <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
-              <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+
+
+              <div className="buttons">
+                <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
+                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+              </div>
+
+
               <br />
 
             </div>
