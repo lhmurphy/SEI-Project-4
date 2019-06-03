@@ -54,10 +54,31 @@ class Edit extends React.Component {
       .then(() => this.props.history.push('/books'))
   }
 
+  // componentDidMount() {
+  //   setInterval(() => {
+  //     let currentQuote = this.state.currentQuote + 1
+  //     currentQuote === this.state.quotes.length ? currentQuote = 0:null
+  //     this.setState({ currentQuote })
+  //   }, 4000)
+  // }
+
+  filterBooks() {
+    return this.state.book.filter(book => {
+      const bookLocationIds = book.location.map(bookLocation => bookLocation.id)
+      const locationIds = this.allLocations.map(allLocation => allLocation.id)
+
+      if(bookLocationIds.id === locationIds.userId) {
+        return locationIds
+      }
+    })
+  }
+
+
   render() {
-    // if(!this.state.book.locations) return null
+    if(!this.state.book.locations) return null
     console.log(this.state.allLocations)
     console.log(this.state.book)
+
 
     return (
       <section className="section">
@@ -152,14 +173,18 @@ class Edit extends React.Component {
                 <div className="field">
                   <label className="label">Locations</label>
                   <div className="control">
-
-                    <input
-                      className="input"
-                      name="locations"
-                      placeholder="eg: London"
+                    <select
+                      name="location"
                       onChange={this.handleChange}
-                      value={this.state.book.locations || ''}
-                    />
+                    >
+                      <option value="">All
+                      </option>
+
+                      {this.state.allLocations.map(location =>
+                        <option key={location.id} value={location.id}>{location.name}</option>
+                      )}
+                    </select>
+
                   </div>
                 </div>
                 <button className="button is-primary">Submit</button>

@@ -1,7 +1,7 @@
 from datetime import datetime
 from pony.orm import Required, Set, Optional
 from app import db
-from marshmallow import Schema, fields, post_load
+from marshmallow import Schema, fields, post_load, validates_schema, ValidationError
 
 from .Location import Location
 
@@ -16,7 +16,7 @@ class ReviewSchema(Schema):
     content = fields.Str(required=True)
     book = fields.Nested('BookSchema', exclude=('reviews', ))
     created_at = fields.DateTime(format='%Y-%m-%d %H:%M:%S')
-    user = fields.Nested('UserSchema', exclude=('books', ))
+    user = fields.Nested('UserSchema', exclude=('books', 'reviews'))
     # likes =
     # user
     # rating
@@ -33,6 +33,7 @@ class Book(db.Entity):
     fiction = Optional(bool)
     locations = Set('Location')
     reviews = Set('Review')
+    user = Required('User')
 
 class BookSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -44,19 +45,45 @@ class BookSchema(Schema):
     jacket = fields.Str(required=True)
     description = fields.Str(required=True)
     fiction = fields.Bool(required=False)
-    locations = fields.Nested('LocationSchema', many=True, exclude=('books', ))
-    reviews = fields.Nested('ReviewSchema', many=True, dump_only=True)
+    locations = fields.Nested('LocationSchema', many=True, exclude=('books', ), dump_only=True)
+    location_ids = fields.List(fields.Int(), load_only=True)
+    reviews = fields.Nested('ReviewSchema', many=True, dump_only=True, exclude=('book', ))
+    user = fields.Nested('UserSchema', exclude=('books', 'reviews'))
 
-    @post_load
-    def load_review(self, data):
-        data['reviews'] = Review.get(id=data['review_id'])
-        del data['review_id']
+    #title, isbn, jacket
+    @validates_schema
+    def validate_title(self, data):
+        title = Book.get(title=data.get('title'))
 
-        return data
+        if title:
+            raise ValidationError(
+                field_name='title',
+                message=['Must be unique']
+            )
+
+    @validates_schema
+    def validate_isbn(self, data):
+        isbn = Book.get(isbn=data.get('isbn'))
+
+        if isbn:
+            raise ValidationError(
+                field_name='isbn',
+                message=['Must be unique']
+            )
+
+    @validates_schema
+    def validate_jacket(self, data):
+        jacket = Book.get(jacket=data.get('jacket'))
+
+        if jacket:
+            raise ValidationError(
+                field_name='jacket',
+                message=['Must be unique']
+            )
 
     @post_load
     def load_locations(self, data):
-        data['locations'] = [Location.get(id=location_ids) for location_ids in data['location_ids']]
+        data['locations'] = [Location.get(id=location_id) for location_id in data['location_ids']]
         del data['location_ids']
 
         return data
