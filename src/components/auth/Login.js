@@ -74,8 +74,8 @@ class Login extends React.Component {
 
                 <button className="button is-danger">Submit</button>
               </form>
-              <p>If you don't have an account, {!Auth.isAuthenticated() && <Link to="/register">register</Link>} here</p>
 
+              <p>Don't have an account, {!Auth.isAuthenticated() && <Link to="/register">register</Link>} here</p>
 
             </div>
           </div>

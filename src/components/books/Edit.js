@@ -41,10 +41,10 @@ class Edit extends React.Component {
 
   componentDidMount() {
     Promise.props({
-      book: axios.get(`/api/books/${this.props.match.params.id}`).then(res => res.data),
+      data: axios.get(`/api/books/${this.props.match.params.id}`).then(res => res.data),
       allLocations: axios.get('/api/locations').then(res => res.data)
     })
-      .then(res => this.setState({ book: res.book, allLocations: res.allLocations }))
+      .then(res => this.setState({ data: res.data, allLocations: res.allLocations }))
       .catch(err => this.setState({ errors: err.response.data.errors}))
   }
 
@@ -55,9 +55,12 @@ class Edit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-
     const token = Auth.getToken()
-
+    const data = {...this.state.data}
+    delete data['id']
+    delete data['user']
+    delete data['locations']
+    delete data['reviews']
     axios.put(`/api/books/${this.props.match.params.id}`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
@@ -73,13 +76,6 @@ class Edit extends React.Component {
       .then(() => this.props.history.push('/books'))
   }
 
-  // componentDidMount() {
-  //   setInterval(() => {
-  //     let currentQuote = this.state.currentQuote + 1
-  //     currentQuote === this.state.quotes.length ? currentQuote = 0:null
-  //     this.setState({ currentQuote })
-  //   }, 4000)
-  // }
 
   filterBooks() {
     return this.state.data.book.filter(book => {
@@ -100,8 +96,10 @@ class Edit extends React.Component {
 
 
   render() {
-    if(!this.state.data.book.locations) return null
+    if(!this.state.data.locations) return null
     console.log(this.state.allLocations, 'all locations')
+    console.log(this.state.data.id , 'id')
+    console.log(this.state.data , 'data')
 
 
     return (
@@ -118,7 +116,7 @@ class Edit extends React.Component {
                       name="title"
                       placeholder="eg: Harry Potter"
                       onChange={this.handleChange}
-                      value={this.state.data.book.title || ''}
+                      value={this.state.data.title || ''}
                     />
                   </div>
                 </div>
@@ -130,7 +128,7 @@ class Edit extends React.Component {
                       name="author"
                       placeholder="eg: J.K. Rowling"
                       onChange={this.handleChange}
-                      value={this.state.data.book.author || ''}
+                      value={this.state.data.author || ''}
                     />
                   </div>
                 </div>
@@ -142,7 +140,7 @@ class Edit extends React.Component {
                       name="isbn"
                       placeholder="eg: 9847987438753"
                       onChange={this.handleChange}
-                      value={this.state.data.book.isbn || ''}
+                      value={this.state.data.isbn || ''}
                     />
                   </div>
                 </div>
@@ -154,7 +152,7 @@ class Edit extends React.Component {
                       name="genre"
                       placeholder="eg: Fantasy"
                       onChange={this.handleChange}
-                      value={this.state.data.book.genre || ''}
+                      value={this.state.data.genre || ''}
                     />
                   </div>
                 </div>
@@ -166,7 +164,7 @@ class Edit extends React.Component {
                       name="date"
                       placeholder="eg: 1990"
                       onChange={this.handleChange}
-                      value={this.state.data.book.year || ''}
+                      value={this.state.data.year || ''}
                     />
                   </div>
                 </div>
@@ -178,7 +176,7 @@ class Edit extends React.Component {
                       name="jacket"
                       placeholder="eg: https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg"
                       onChange={this.handleChange}
-                      value={this.state.data.book.image || ''}
+                      value={this.state.data.image || ''}
                     />
                   </div>
                 </div>
@@ -190,7 +188,7 @@ class Edit extends React.Component {
                       name="description"
                       placeholder="eg: Harry Potter is based in the UK..."
                       onChange={this.handleChange}
-                      value={this.state.data.book.description || ''}
+                      value={this.state.data.description || ''}
                     />
                   </div>
                 </div>
@@ -221,3 +219,11 @@ class Edit extends React.Component {
 }
 
 export default Edit
+
+// componentDidMount() {
+//   setInterval(() => {
+//     let currentQuote = this.state.currentQuote + 1
+//     currentQuote === this.state.quotes.length ? currentQuote = 0:null
+//     this.setState({ currentQuote })
+//   }, 4000)
+// }
