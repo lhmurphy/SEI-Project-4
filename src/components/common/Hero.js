@@ -12,20 +12,20 @@ class Navbar extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   setInterval(() => {
-  //     let currentQuote = this.state.currentQuote + 1
-  //     currentQuote === this.state.quotes.length ? currentQuote = 0:null
-  //     this.setState({ currentQuote })
-  //   }, 4000)
-  // }
+  componentDidMount() {
+    setInterval(() => {
+      let currentQuote = this.state.currentQuote + 1
+      currentQuote === this.state.quotes.length ? currentQuote = 0:null
+      this.setState({ currentQuote })
+    }, 4000)
+  }
 
   render() {
     console.log(this.state.quotes)
     return (
       <section className="section" id="quote">
         <div className="quotes" style={{
-          currentQuote: `<h1>${quotes[this.state.currentQuote]}</h1>`
+          currentQuote: `${quotes[this.state.currentQuote]}`
         }}>
         </div>
       </section>

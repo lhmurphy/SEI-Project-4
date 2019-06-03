@@ -39,7 +39,7 @@ class Show extends React.Component {
     })
       .then(res => this.setState({ book: res.data }))
 
-      .then(this.setState({ value: '' }))
+      .then(this.setState({ value: {} }))
 
   }
 
@@ -70,7 +70,7 @@ class Show extends React.Component {
   render() {
     if(!this.state.book) return null
     if(!this.state.data) return null
-    console.log(this.state.book)
+    console.log(this.state.book.user.image, 'elle')
     console.log(this.state.book.reviews)
     console.log(this.state.allReviews)
 
@@ -101,6 +101,9 @@ class Show extends React.Component {
                     <div className="buttons">
                       <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
                       <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+                      <figure className="image is-64x64px">
+                        <p>Added by:<img src={this.state.book.user.image} alt={this.state.book.title} /></p>
+                      </figure>
                     </div>
                   </div>
                 </div>
@@ -122,7 +125,7 @@ class Show extends React.Component {
           <article key={review.id} className="media">
             <figure className="media-left">
               <p className="image is-64x64">
-                <img src={review.user.image} />
+                <img src={review.user.image ? review.user.image:'../../images/user.png'} alt={name} />
               </p>
             </figure>
             <div className="media-content">

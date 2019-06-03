@@ -15,6 +15,18 @@ with db_session():
         password_hash=schema.generate_hash('pass'),
         image='https://pbs.twimg.com/profile_images/1095848308361302021/RZrejye3.jpg'
     )
+    elle = User(
+        username='elle',
+        email='elle@hotmail.com',
+        password_hash=schema.generate_hash('pass'),
+        image='https://media.licdn.com/dms/image/C5603AQHX0omHmh7fWQ/profile-displayphoto-shrink_800_800/0?e=1565222400&v=beta&t=5pP3yPblEgMO-XljaArDpTJJblOqk0dy5L28S3qbWGQ'
+    )
+    hugo = User(
+        username='hugo',
+        email='hugo@hotmail.com',
+        password_hash=schema.generate_hash('pass'),
+        image='https://media.licdn.com/dms/image/C4E03AQFsE6plNPRwsg/profile-displayphoto-shrink_800_800/0?e=1565222400&v=beta&t=6TGy4Oli2Yc5LRLDCPKuuk850vNQiEUnyVW-g08ocjc'
+    )
 
     amsterdam = Location(name='Amsterdam')
     paris = Location(name='Paris')
@@ -50,7 +62,7 @@ with db_session():
     description="From the highly acclaimed, multiple award-winning Anthony Doerr, the stunningly beautiful instant New York Times bestseller about a blind French girl and a German boy whose paths collide in occupied France as both try to survive the devastation of World War II. Marie-Laure lives in Paris near the Museum of Natural History, where her father works. When she is twelve, the Nazis occupy Paris and father and daughter flee to the walled citadel of Saint-Malo, where Marie-Laure’s reclusive great uncle lives in a tall house by the sea. With them they carry what might be the museum’s most valuable and dangerous jewel. In a mining town in Germany, Werner Pfennig, an orphan, grows up with his younger sister, enchanted by a crude radio they find that brings them news and stories from places they have never seen or imagined. Werner becomes an expert at building and fixing these crucial new instruments and is enlisted to use his talent to track down the resistance. Deftly interweaving the lives of Marie-Laure and Werner, Doerr illuminates the ways, against all odds, people try to be good to one another. Doerr’s “stunning sense of physical detail and gorgeous metaphors” (San Francisco Chronicle) are dazzling. Ten years in the writing, a National Book Award finalist, All the Light We Cannot See is a magnificent, deeply moving novel from a writer “whose sentences never fail to thrill” (Los Angeles Times).",
     fiction=True,
     locations=[paris],
-    user=lhmurphy
+    user=elle
     )
 
     in_cold_blood = Book(
@@ -63,7 +75,7 @@ with db_session():
     description="On November 15, 1959, in the small town of Holcomb, Kansas, four members of the Clutter family were savagely murdered by blasts from a shotgun held a few inches from their faces. There was no apparent motive for the crime, and there were almost no clues. As Truman Capote reconstructs the murder and the investigation that led to the capture, trial, and execution of the killers, he generates both mesmerizing suspense and astonishing empathy. In Cold Blood is a work that transcends its moment, yielding poignant insights into the nature of American violence.",
     fiction=False,
     locations=[kansas],
-    user=lhmurphy
+    user=hugo
     )
 
     one_hundred_years_of_solitude = Book(
@@ -89,7 +101,7 @@ with db_session():
     description="When seventeen-year-old Franz exchanges his home in the idyllic beauty of the Austrian lake district for the bustle of Vienna, his homesickness quickly dissolves amidst the thrum of the city. In his role as apprentice to the elderly tobacconist Otto Trsnyek, he will soon be supplying the great and good of Vienna with their newspapers and cigarettes. Among the regulars is a Professor Freud, whose predilection for cigars and occasional willingness to dispense romantic advice will forge a bond between him and young Franz. It is 1937. In a matter of months Germany will annex Austria and the storm that has been threatening to engulf the little tobacconist will descend, leaving the lives of Franz, Otto and Professor Freud irredeemably changed.",
     fiction=True,
     locations=[austria],
-    user=lhmurphy
+    user=elle
     )
 
     ali_and_nino_a_love_story = Book(
@@ -102,7 +114,7 @@ with db_session():
     description="The sweeping tale of love challenged by war, as romantic and gripping as Gone with the Wind or Dr. Zhivago, Ali& Nino portrays, against a glamorously exotic backdrop,the enduring love between childhood friends divided by separate cultures.Ali and Nino grow up together in carefree innocence in Baku, on the Caspian Sea. Here, where East and West collide, they are inevitably drawn into the events of World War I and the Russian Revolution. Torn apart by the turmoil of the divided society around them, Ali joins the defense of Azerbaijan from the onslaught of the Red Army and Nino flees to the safety of Paris with their child, unsure whether they will ever see each other again. This is an unforgettable story of blood feud, adventure, and personal heroism―and a love that endures the upheaval of cultures.",
     fiction=True,
     locations=[azerbaijan],
-    user=lhmurphy
+    user=hugo
     )
 
     war_and_turpentine = Book(
@@ -128,7 +140,7 @@ with db_session():
     description="Long regarded as the Forbidden Land, Bhutanor Druk Yul, the Land of the Thunder Dragonwas virtually closed to the outside world until the 1960s. Even today, little is known about this remote Himalayan Buddhist kingdom nestled between two giant neighbours, India and China. Often described as the Last Shangri La, Bhutan is still a country of pristine forests, alpine valleys and glacial lakes, rich in rare flora and fauna such as the blue poppy, the golden langur and the red panda. As spectacular as its natural beauty are the architecture of its towering dzongs (fortresses) and the art treasures that fill its monasteries and temples. Ashi Dorji Wangmo Wangchucks portrait of her country is a captivating blend of personal memoir, history, folklore and travelogue. It provides unique and intimate insights into Bhutanese culture and society, with its vivid glimpses of life in Bhutans villages and hamlets, monasteries and palaces. Her engaging account of her childhood, growing up in a village in western Bhutan and the changes she witnessed when the country decided to end its isolation also tells a larger storythat of Bhutans rapid transition from a medieval kingdom to a modern nation within the space of a decade. The author shares with us her delight in some of the hidden treasures of her country, which she discovered during her journeys on foot to every corner of Bhutanfrom highland villages in the shadow of the great Himalayan peaks to serene monasteries wreathed in myth and legend to the rainforests in the south and centre of the country, which are among the worlds richest biodiversity hotspots. This book, with its specially commissioned illustrations by young Bhutanese artists, and photographs from the authors family album, is essential reading both for those who plan to visit the Kingdom of the Thunder Dragon and for armchair travellers who yearn to experience the magic of Bhutan through their imaginations.",
     fiction=False,
     locations=[bhutan],
-    user=lhmurphy
+    user=elle
     )
 
     la_casa_de_los_espiritus_the_house_of_the_spirits = Book(
@@ -141,7 +153,7 @@ with db_session():
     description="In one of the most important and beloved Latin American works of the twentieth century, Isabel Allende weaves a luminous tapestry of three generations of the Trueba family, revealing both triumphs and tragedies. Here is patriarch Esteban, whose wild desires and political machinations are tempered only by his love for his ethereal wife, Clara, a woman touched by an otherworldly hand. Their daughter, Blanca, whose forbidden love for a man Esteban has deemed unworthy infuriates her father, yet will produce his greatest joy: his granddaughter Alba, a beautiful, ambitious girl who will lead the family and their country into a revolutionary future. The House of the Spirits is an enthralling saga that spans decades and lives, twining the personal and the political into an epic novel of love, magic, and fate.",
     fiction=True,
     locations=[chile],
-    user=lhmurphy
+    user=hugo
     )
 
     smillas_sense_of_snow = Book(
@@ -167,7 +179,7 @@ with db_session():
     description="Drawing on the rich experience of his own life, bestselling author Paulo Coelho takes us back in time to relive the dreams of a generation that longed for peace and dared to challenge the established social order. In HIPPIE, he tells the story of Paulo, a skinny Brazilian with a goatee and long hair, setting off on a journey in search of a deeper meaning for his life. He travels on the famous ‘Death Train to Bolivia’, then on to Peru, later hitchhiking through Chile and Argentina. In the famous Dam Square in Amsterdam he finds young people playing music, while discussing sexual liberation, the expansion of consciousness and the search for an inner truth. There he meets Karla, a Dutch woman in her twenties who has been waiting to find the ideal companion to accompany her on the fabled hippie trail to Nepal. Together with their fellow travellers, they embark on a trip aboard the Magic Bus, heading across Europe and Central Asia to Kathmandu. For everyone, the journey is transformative. For Paulo and Karla it is a life-defining love story that leads to choices that will set the course of the rest of their lives.",
     fiction=True,
     locations=[amsterdam],
-    user=lhmurphy
+    user=elle
     )
 
     the_hearts_invisible_furies = Book(
@@ -180,7 +192,7 @@ with db_session():
     description="Forced to flee the scandal brewing in her hometown, Catherine Goggin finds herself pregnant and alone, in search of a new life at just sixteen. She knows she has no choice but to believe that the nun she entrusts her child to will find him a better life. Cyril Avery is not a real Avery, or so his parents are constantly reminding him. Adopted as a baby, he’s never quite felt at home with the family that treats him more as a curious pet than a son. But it is all he has ever known. And so begins one man’s desperate search to find his place in the world. Unspooling and unseeing, Cyril is a misguided, heart-breaking, heartbroken fool. Buffeted by the harsh winds of circumstance towards the one thing that might save him from himself, but when opportunity knocks, will he have the courage, finally, take it?",
     fiction=True,
     locations=[amsterdam],
-    user=lhmurphy
+    user=hugo
     )
 
     us = Book(
@@ -206,7 +218,7 @@ with db_session():
     description="A summer's evening in Amsterdam and two couples meet at a fashionable restaurant. Between mouthfuls of food and over the delicate scraping of cutlery, the conversation remains a gentle hum of politeness - the banality of work, the triviality of holidays. But the empty words hide a terrible conflict and, with every forced smile and every new course, the knives are being sharpened... Each couple has a fifteen-year-old son. Together, the boys have committed a horrifying act, caught on camera, and their grainy images have been beamed into living rooms across the nation; despite a police manhunt, the boys remain unidentified - by everyone except their parents. As the dinner reaches its culinary climax, the conversation finally touches on their children and, as civility and friendship disintegrate, each couple shows just how far they are prepared to go to protect those they love.",
     fiction=True,
     locations=[amsterdam],
-    user=lhmurphy
+    user=elle
     )
 
     Review(

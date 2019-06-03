@@ -57,19 +57,20 @@ class Index extends React.Component {
             <div className="columns is-multiline">
               <div className="field" id="books-index">
                 <div className="control">
-                  <div className="select">
-                    <select
-                      name="location"
-                      onChange={this.handleChange}
-                    >
-                      <option value="">All
-                      </option>
-                      {this.state.locations.map(location =>
-                        <option key={location.id} value={location.id}>{location.name}</option>
-                      )}
-                    </select>
-                    <p> Featured reads...</p>
-
+                  <div className="sort">
+                  Sort by Location:
+                    <div className="select">
+                      <select
+                        name="location"
+                        onChange={this.handleChange}
+                      >
+                        <option value="">All
+                        </option>
+                        {this.state.locations.map(location =>
+                          <option key={location.id} value={location.id}>{location.name}</option>
+                        )}
+                      </select>
+                    </div>
                   </div>
                   {this.filterBooks().map(book =>
                     <div key={book.id} className="column is-full-desktop is-full-tablet">

@@ -57,11 +57,11 @@ class Edit extends React.Component {
     e.preventDefault()
     const token = Auth.getToken()
     const data = {...this.state.data}
-    delete data['id']
-    delete data['user']
-    delete data['locations']
-    delete data['reviews']
-    axios.put(`/api/books/${this.props.match.params.id}`, this.state.data, {
+    delete data.id
+    delete data.user
+    delete data.locations
+    delete data.reviews
+    axios.put(`/api/books/${this.props.match.params.id}`, data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/books'))

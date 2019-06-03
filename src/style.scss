@@ -27,14 +27,20 @@ body {
   font-size: 30px;
 }
 
-// #quotes {
-//   transition: 2s ease;
-// }
+.quotes {
+  transition: 2s ease;
+  height:30px;
+}
 
 .select {
   margin: 15px;
 }
 
+.sort {
+  display: flex;
+  align-items: center;
+  margin: 0 25px;
+}
 img {
   max-width: 150px;
 }

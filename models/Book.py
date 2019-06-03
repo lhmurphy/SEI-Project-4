@@ -23,12 +23,12 @@ class ReviewSchema(Schema):
 
 
 class Book(db.Entity):
-    title = Required(str, unique=True)
+    title = Required(str)
     author = Required(str)
-    isbn = Required(str, unique=True)
+    isbn = Required(str)
     genre = Required(str)
     date = Optional(int)
-    jacket = Required(str, unique=True)
+    jacket = Required(str)
     description = Required(str)
     fiction = Optional(bool)
     locations = Set('Location')
@@ -49,37 +49,6 @@ class BookSchema(Schema):
     location_ids = fields.List(fields.Int(), load_only=True)
     reviews = fields.Nested('ReviewSchema', many=True, dump_only=True, exclude=('book', ))
     user = fields.Nested('UserSchema', exclude=('books', 'reviews'))
-
-    #title, isbn, jacket
-    @validates_schema
-    def validate_title(self, data):
-        title = Book.get(title=data.get('title'))
-
-        if title:
-            raise ValidationError(
-                field_name='title',
-                message=['Must be unique']
-            )
-
-    @validates_schema
-    def validate_isbn(self, data):
-        isbn = Book.get(isbn=data.get('isbn'))
-
-        if isbn:
-            raise ValidationError(
-                field_name='isbn',
-                message=['Must be unique']
-            )
-
-    @validates_schema
-    def validate_jacket(self, data):
-        jacket = Book.get(jacket=data.get('jacket'))
-
-        if jacket:
-            raise ValidationError(
-                field_name='jacket',
-                message=['Must be unique']
-            )
 
     @post_load
     def load_locations(self, data):
