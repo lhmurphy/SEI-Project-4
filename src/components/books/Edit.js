@@ -1,8 +1,22 @@
 import React from 'react'
 import axios from 'axios'
 import Promise from 'bluebird'
+import Select from 'react-select'
 
 import Auth from '../../lib/Auth'
+
+const locationOptions = [
+  { value: 1, label: 'Amsterdam' },
+  { value: 2, label: 'Paris' },
+  { value: 3, label: 'Kansas' },
+  { value: 4, label: 'Colombia' },
+  { value: 5, label: 'Austria' },
+  { value: 6, label: 'Azerbaijan' },
+  { value: 7, label: 'Belgium' },
+  { value: 8, label: 'Bhutan' },
+  { value: 9, label: 'Chile' },
+  { value: 10, label: 'Copenhagen' }
+]
 
 class Edit extends React.Component {
 
@@ -10,7 +24,10 @@ class Edit extends React.Component {
     super()
 
     this.state = {
-      book: '',
+      data: {
+        location_ids: [],
+        book: ''
+      },
       allLocations: {},
       errors: {}
     }
@@ -18,6 +35,8 @@ class Edit extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleLocationChange = this.handleLocationChange.bind(this)
+
   }
 
   componentDidMount() {
@@ -39,7 +58,7 @@ class Edit extends React.Component {
 
     const token = Auth.getToken()
 
-    axios.put(`/api/books/${this.state.data._id}`, this.state.data, {
+    axios.put(`/api/books/${this.props.match.params.id}`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/books'))
@@ -48,7 +67,7 @@ class Edit extends React.Component {
 
   handleDelete() {
     const token = Auth.getToken()
-    axios.delete(`/api/books/${this.state.data._id}`, this.state.data,  {
+    axios.delete(`/api/books/${this.props.match.params.id}`, this.state.data,  {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/books'))
@@ -63,7 +82,7 @@ class Edit extends React.Component {
   // }
 
   filterBooks() {
-    return this.state.book.filter(book => {
+    return this.state.data.book.filter(book => {
       const bookLocationIds = book.location.map(bookLocation => bookLocation.id)
       const locationIds = this.allLocations.map(allLocation => allLocation.id)
 
@@ -73,11 +92,16 @@ class Edit extends React.Component {
     })
   }
 
+  handleLocationChange(selectedLocation) {
+    const selectedLocations = selectedLocation.map(location => location.value)
+    const data = { ...this.state.data, location_ids: [ ...selectedLocations ] }
+    this.setState({ data })
+  }
+
 
   render() {
-    if(!this.state.book.locations) return null
-    console.log(this.state.allLocations)
-    console.log(this.state.book)
+    if(!this.state.data.book.locations) return null
+    console.log(this.state.allLocations, 'all locations')
 
 
     return (
@@ -94,7 +118,7 @@ class Edit extends React.Component {
                       name="title"
                       placeholder="eg: Harry Potter"
                       onChange={this.handleChange}
-                      value={this.state.book.title || ''}
+                      value={this.state.data.book.title || ''}
                     />
                   </div>
                 </div>
@@ -106,7 +130,7 @@ class Edit extends React.Component {
                       name="author"
                       placeholder="eg: J.K. Rowling"
                       onChange={this.handleChange}
-                      value={this.state.book.author || ''}
+                      value={this.state.data.book.author || ''}
                     />
                   </div>
                 </div>
@@ -118,7 +142,7 @@ class Edit extends React.Component {
                       name="isbn"
                       placeholder="eg: 9847987438753"
                       onChange={this.handleChange}
-                      value={this.state.book.isbn || ''}
+                      value={this.state.data.book.isbn || ''}
                     />
                   </div>
                 </div>
@@ -130,7 +154,7 @@ class Edit extends React.Component {
                       name="genre"
                       placeholder="eg: Fantasy"
                       onChange={this.handleChange}
-                      value={this.state.book.genre || ''}
+                      value={this.state.data.book.genre || ''}
                     />
                   </div>
                 </div>
@@ -142,7 +166,7 @@ class Edit extends React.Component {
                       name="date"
                       placeholder="eg: 1990"
                       onChange={this.handleChange}
-                      value={this.state.book.year || ''}
+                      value={this.state.data.book.year || ''}
                     />
                   </div>
                 </div>
@@ -154,7 +178,7 @@ class Edit extends React.Component {
                       name="jacket"
                       placeholder="eg: https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg"
                       onChange={this.handleChange}
-                      value={this.state.book.image || ''}
+                      value={this.state.data.book.image || ''}
                     />
                   </div>
                 </div>
@@ -166,25 +190,24 @@ class Edit extends React.Component {
                       name="description"
                       placeholder="eg: Harry Potter is based in the UK..."
                       onChange={this.handleChange}
-                      value={this.state.book.description || ''}
+                      value={this.state.data.book.description || ''}
                     />
                   </div>
                 </div>
                 <div className="field">
                   <label className="label">Locations</label>
                   <div className="control">
-                    <select
-                      name="location"
-                      onChange={this.handleChange}
-                    >
-                      <option value="">All
-                      </option>
-
-                      {this.state.allLocations.map(location =>
-                        <option key={location.id} value={location.id}>{location.name}</option>
-                      )}
-                    </select>
-
+                    <Select
+                      isMulti
+                      clearValue
+                      options={locationOptions}
+                      onChange={this.handleLocationChange}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                      name="location_ids"
+                      placeholder="eg: London"
+                      key={location.label}
+                    />
                   </div>
                 </div>
                 <button className="button is-primary">Submit</button>

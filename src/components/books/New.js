@@ -37,12 +37,6 @@ class BooksNew extends React.Component {
 
   }
 
-  componentDidMount() {
-    axios.get('/api/books')
-      .then(res => this.setState({ books: res.books }))
-      .catch(err => this.setState({ errors: err.response.data.errors}))
-  }
-
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
@@ -67,6 +61,8 @@ class BooksNew extends React.Component {
 
   render() {
     console.log('this.state.books', this.state.books)
+    console.log(this.state.data, 'state')
+
     return (
       <section className="section">
         <div className="container">
