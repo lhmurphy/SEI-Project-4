@@ -26,7 +26,7 @@ def create():
         book = Book(**data)
         db.commit()
     except ValidationError as err:
-        return jsonify({'message': 'Validation failed', 'errors': err.message}), 422
+        return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
 
     return schema.dumps(book), 201
 

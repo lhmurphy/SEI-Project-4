@@ -3,13 +3,14 @@ import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 import Hero from './../common/Hero'
 
-
 class Navbar extends React.Component {
 
   constructor(props) {
     super(props)
 
-    this.state = { active: false }
+    this.state = {
+      active: false
+    }
 
     this.logout = this.logout.bind(this)
     this.toggleActive = this.toggleActive.bind(this)
@@ -28,7 +29,6 @@ class Navbar extends React.Component {
     if(prevProps.location.pathname !== this.props.location.pathname) {
       this.setState({ active: false })
     }
-
   }
 
   render() {

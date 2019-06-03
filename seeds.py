@@ -147,6 +147,54 @@ with db_session():
     locations=[copenhagen]
     )
 
+    hippie = Book(
+    title="Hippie",
+    author="Paolo Coelho",
+    isbn="978-1786331588",
+    genre="Literary Fiction",
+    jacket="https://images-na.ssl-images-amazon.com/images/I/41dQTPXDp0L._SX293_BO1,204,203,200_.jpg",
+    date=2018,
+    description="Drawing on the rich experience of his own life, bestselling author Paulo Coelho takes us back in time to relive the dreams of a generation that longed for peace and dared to challenge the established social order. In HIPPIE, he tells the story of Paulo, a skinny Brazilian with a goatee and long hair, setting off on a journey in search of a deeper meaning for his life. He travels on the famous ‘Death Train to Bolivia’, then on to Peru, later hitchhiking through Chile and Argentina. In the famous Dam Square in Amsterdam he finds young people playing music, while discussing sexual liberation, the expansion of consciousness and the search for an inner truth. There he meets Karla, a Dutch woman in her twenties who has been waiting to find the ideal companion to accompany her on the fabled hippie trail to Nepal. Together with their fellow travellers, they embark on a trip aboard the Magic Bus, heading across Europe and Central Asia to Kathmandu. For everyone, the journey is transformative. For Paulo and Karla it is a life-defining love story that leads to choices that will set the course of the rest of their lives.",
+    fiction=True,
+    locations=[amsterdam]
+    )
+
+    the_hearts_invisible_furies = Book(
+    title="The Heart’s Invisible Furies",
+    author="John Boyne",
+    isbn="978-1784161002",
+    genre="Historical Fiction",
+    jacket="https://images-na.ssl-images-amazon.com/images/I/514KOtZxHjL._SX328_BO1,204,203,200_.jpg",
+    date=2019,
+    description="Forced to flee the scandal brewing in her hometown, Catherine Goggin finds herself pregnant and alone, in search of a new life at just sixteen. She knows she has no choice but to believe that the nun she entrusts her child to will find him a better life. Cyril Avery is not a real Avery, or so his parents are constantly reminding him. Adopted as a baby, he’s never quite felt at home with the family that treats him more as a curious pet than a son. But it is all he has ever known. And so begins one man’s desperate search to find his place in the world. Unspooling and unseeing, Cyril is a misguided, heart-breaking, heartbroken fool. Buffeted by the harsh winds of circumstance towards the one thing that might save him from himself, but when opportunity knocks, will he have the courage, finally, take it?",
+    fiction=True,
+    locations=[amsterdam]
+    )
+
+    us = Book(
+    title="Us",
+    author="David Nicholls",
+    isbn="978-0340897010",
+    genre="Historical Fiction",
+    jacket="https://images-na.ssl-images-amazon.com/images/I/419jD4jadjL._SX324_BO1,204,203,200_.jpg",
+    date=2015,
+    description="Douglas Petersen understands his wife's need to 'rediscover herself' now that their son is leaving home. He just thought they'd be doing their rediscovering together. So when Connie announces that she will be leaving, too, he resolves to make their last family holiday into the trip of a lifetime: one that will draw the three of them closer, and win the respect of his son. One that will make Connie fall in love with him all over again. The hotels are booked, the tickets bought, the itinerary planned and printed. What could possibly go wrong?",
+    fiction=True,
+    locations=[amsterdam]
+    )
+
+    the_dinner = Book(
+    title="The Dinner",
+    author="Herman Koch",
+    isbn="978-1848873827",
+    genre="Satire",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/51-q4hmQoKL.jpg",
+    date=2012,
+    description="A summer's evening in Amsterdam and two couples meet at a fashionable restaurant. Between mouthfuls of food and over the delicate scraping of cutlery, the conversation remains a gentle hum of politeness - the banality of work, the triviality of holidays. But the empty words hide a terrible conflict and, with every forced smile and every new course, the knives are being sharpened... Each couple has a fifteen-year-old son. Together, the boys have committed a horrifying act, caught on camera, and their grainy images have been beamed into living rooms across the nation; despite a police manhunt, the boys remain unidentified - by everyone except their parents. As the dinner reaches its culinary climax, the conversation finally touches on their children and, as civility and friendship disintegrate, each couple shows just how far they are prepared to go to protect those they love.",
+    fiction=True,
+    locations=[amsterdam]
+    )
+
     Review(
     content="BRILLIANT!",
     book=the_miniaturist,

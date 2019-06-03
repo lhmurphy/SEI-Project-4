@@ -50,7 +50,8 @@ class Edit extends React.Component {
   }
 
   render() {
-    console.log(this.state.data)
+    if(!this.state.data.locations) return null
+    console.log(this.state.data.locations)
     return (
       <section className="section">
         <div className="container">
@@ -144,6 +145,16 @@ class Edit extends React.Component {
                 <div className="field">
                   <label className="label">Locations</label>
                   <div className="control">
+                    <select
+                      name="location"
+                      onChange={this.handleChange}
+                    >
+                      <option value="">All
+                      </option>
+                      {this.state.data.locations.map(location =>
+                        <option key={location.id} value={location.id}>{location.name}</option>
+                      )}
+                    </select>
                     <input
                       className="input"
                       name="locations"
