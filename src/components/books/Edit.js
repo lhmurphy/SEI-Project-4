@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Promise from 'bluebird'
 
 import Auth from '../../lib/Auth'
 
@@ -9,7 +10,8 @@ class Edit extends React.Component {
     super()
 
     this.state = {
-      data: {},
+      book: '',
+      allLocations: {},
       errors: {}
     }
 
@@ -19,8 +21,11 @@ class Edit extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/books/${this.props.match.params.id}`)
-      .then(res => this.setState({ data: res.data}))
+    Promise.props({
+      book: axios.get(`/api/books/${this.props.match.params.id}`).then(res => res.data),
+      allLocations: axios.get('/api/locations').then(res => res.data)
+    })
+      .then(res => this.setState({ book: res.book, allLocations: res.allLocations }))
       .catch(err => this.setState({ errors: err.response.data.errors}))
   }
 
@@ -50,8 +55,10 @@ class Edit extends React.Component {
   }
 
   render() {
-    if(!this.state.data.locations) return null
-    console.log(this.state.data.locations)
+    // if(!this.state.book.locations) return null
+    console.log(this.state.allLocations)
+    console.log(this.state.book)
+
     return (
       <section className="section">
         <div className="container">
@@ -66,7 +73,7 @@ class Edit extends React.Component {
                       name="title"
                       placeholder="eg: Harry Potter"
                       onChange={this.handleChange}
-                      value={this.state.data.title || ''}
+                      value={this.state.book.title || ''}
                     />
                   </div>
                 </div>
@@ -78,7 +85,7 @@ class Edit extends React.Component {
                       name="author"
                       placeholder="eg: J.K. Rowling"
                       onChange={this.handleChange}
-                      value={this.state.data.author || ''}
+                      value={this.state.book.author || ''}
                     />
                   </div>
                 </div>
@@ -90,7 +97,7 @@ class Edit extends React.Component {
                       name="isbn"
                       placeholder="eg: 9847987438753"
                       onChange={this.handleChange}
-                      value={this.state.data.isbn || ''}
+                      value={this.state.book.isbn || ''}
                     />
                   </div>
                 </div>
@@ -102,7 +109,7 @@ class Edit extends React.Component {
                       name="genre"
                       placeholder="eg: Fantasy"
                       onChange={this.handleChange}
-                      value={this.state.data.genre || ''}
+                      value={this.state.book.genre || ''}
                     />
                   </div>
                 </div>
@@ -114,7 +121,7 @@ class Edit extends React.Component {
                       name="date"
                       placeholder="eg: 1990"
                       onChange={this.handleChange}
-                      value={this.state.data.year || ''}
+                      value={this.state.book.year || ''}
                     />
                   </div>
                 </div>
@@ -126,7 +133,7 @@ class Edit extends React.Component {
                       name="jacket"
                       placeholder="eg: https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg"
                       onChange={this.handleChange}
-                      value={this.state.data.image || ''}
+                      value={this.state.book.image || ''}
                     />
                   </div>
                 </div>
@@ -138,29 +145,20 @@ class Edit extends React.Component {
                       name="description"
                       placeholder="eg: Harry Potter is based in the UK..."
                       onChange={this.handleChange}
-                      value={this.state.data.description || ''}
+                      value={this.state.book.description || ''}
                     />
                   </div>
                 </div>
                 <div className="field">
                   <label className="label">Locations</label>
                   <div className="control">
-                    <select
-                      name="location"
-                      onChange={this.handleChange}
-                    >
-                      <option value="">All
-                      </option>
-                      {this.state.data.locations.map(location =>
-                        <option key={location.id} value={location.id}>{location.name}</option>
-                      )}
-                    </select>
+
                     <input
                       className="input"
                       name="locations"
                       placeholder="eg: London"
                       onChange={this.handleChange}
-                      value={this.state.data.locations || ''}
+                      value={this.state.book.locations || ''}
                     />
                   </div>
                 </div>

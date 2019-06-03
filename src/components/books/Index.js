@@ -24,6 +24,7 @@ class Index extends React.Component {
       locations: axios.get('/api/locations').then(res => res.data)
     })
       .then(data => this.setState({ books: data.books, locations: data.locations, reviews: data.reviews }))
+      .catch(err => this.setState({ errors: err.response.data.errors}))
   }
 
   handleChange(e) {

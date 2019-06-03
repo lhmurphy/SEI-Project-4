@@ -12,13 +12,13 @@ class Navbar extends React.Component {
     }
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      let currentQuote = this.state.currentQuote + 1
-      currentQuote === this.state.quotes.length ? currentQuote = 0:null
-      this.setState({ currentQuote })
-    }, 4000)
-  }
+  // componentDidMount() {
+  //   setInterval(() => {
+  //     let currentQuote = this.state.currentQuote + 1
+  //     currentQuote === this.state.quotes.length ? currentQuote = 0:null
+  //     this.setState({ currentQuote })
+  //   }, 4000)
+  // }
 
   render() {
     console.log(this.state.quotes)
