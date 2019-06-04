@@ -14,14 +14,41 @@ body {
 }
 
 main {
-    height: 70vh;
+    height: 90vh;
+}
+.navbar {
+  color: #ff2a56;
+  height: 70px;
 }
 
 .home {
+  background-image: url(https://s3.amazonaws.com/riffle-assets/img/riffle-header-bg-v4.jpg);
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  background-image: contain;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
   h2 {
     text-transform: uppercase;
     font-weight: bold;
   }
+}
+
+.home:button {
+  color: yellow;
+}
+.home-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20%;
 }
 
 #hero{

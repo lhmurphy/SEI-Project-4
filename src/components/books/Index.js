@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Promise from 'bluebird'
 import Auth from '../../lib/Auth'
+import Hero from './../common/Hero'
 
 import Card from './Card'
 
@@ -49,6 +50,7 @@ class Index extends React.Component {
     console.log(this.state.reviews)
     return (
       <main>
+              <Hero />
         <div className="book-button">
           {Auth.isAuthenticated() && <Link to="/books/new" className="button is-danger">Add a book</Link>}
         </div>
@@ -90,3 +92,17 @@ class Index extends React.Component {
 }
 
 export default Index
+
+// <nav className="pagination is-large" role="navigation" aria-label="pagination">
+// <a className="pagination-previous">Previous</a>
+// <a className="pagination-next">Next page</a>
+// <ul className="pagination-list">
+// <li><a className="pagination-link" aria-label="Goto page 1">1</a></li>
+// <li><span className="pagination-ellipsis">&hellip;</span></li>
+// <li><a className="pagination-link" aria-label="Goto page 45">45</a></li>
+// <li><a className="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+// <li><a className="pagination-link" aria-label="Goto page 47">47</a></li>
+// <li><span className="pagination-ellipsis">&hellip;</span></li>
+// <li><a className="pagination-link" aria-label="Goto page 86">86</a></li>
+// </ul>
+// </nav>

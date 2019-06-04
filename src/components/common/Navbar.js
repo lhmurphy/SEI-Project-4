@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/Auth'
-import Hero from './../common/Hero'
 
 class Navbar extends React.Component {
 
@@ -34,7 +33,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className='nav'>
-        <nav className="navbar is-dark">
+        <nav className="navbar is-danger">
           <div className="container">
 
             <div className="navbar-brand">
@@ -64,7 +63,6 @@ class Navbar extends React.Component {
             </div>
           </div>
         </nav>
-        <Hero />
       </div>
     )
   }

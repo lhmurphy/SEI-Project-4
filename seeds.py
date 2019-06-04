@@ -38,6 +38,11 @@ with db_session():
     bhutan = Location(name='Bhutan')
     chile = Location(name='Chile')
     copenhagen = Location(name='Copenhagen')
+    palestine = Location(name='Palestine')
+    london = Location(name='London')
+    taiga = Location(name='Taiga')
+    oxford = Location(name='Oxford')
+    edinburgh = Location(name='Edinburgh')
 
     the_miniaturist = Book(
     title="The Miniaturist",
@@ -219,6 +224,115 @@ with db_session():
     fiction=True,
     locations=[amsterdam],
     user=elle
+    )
+
+    the_parisian = Book(
+    title="The Parisian",
+    author="Isabella Hammad",
+    isbn="978-1911214427",
+    genre="Historical fiction",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/51M9D8tktKL.jpg",
+    date=2019,
+    description="As the First World War shatters families, destroys friendships and kills lovers, a young Palestinian dreamer sets out to find himself.\n Midhat Kamal navigates his way across a fractured world, from the shifting politics of the Middle East to the dinner tables of Montpellier and a newly tumultuous Paris. He discovers that everything is fragile: love turns to loss, friends become enemies and everyone is looking for a place to belong.\n Isabella Hammad delicately untangles the politics and personal tragedies of a turbulent era – the Palestinian struggle for independence, the strife of the early twentieth century and the looming shadow of the Second World War. An intensely human story amidst a global conflict, The Parisian is historical fiction with a remarkable contemporary voice.",
+    fiction=True,
+    locations=[paris, palestine],
+    user=elle
+    )
+    enchantee = Book(
+    title="Enchantée",
+    author="Gita Trelease",
+    isbn="978-1509895977",
+    genre="Fantasy/Sci Fi",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/51wvz%2BsBBML.jpg",
+    date=2019,
+    description="A compellingly beautiful tale of magic, intrigue and deception, set against the backdrop of eighteenth-century Paris on the cusp of revolution.\n Paris in 1789 is a labyrinth of twisted streets, filled with beggars, thieves, revolutionaries – and magicians . . . \nWhen seventeen-year-old Camille is left orphaned, she has to provide for her frail sister and her volatile brother. In desperation, she survives by using the petty magic she learnt from her mother. But when her brother disappears Camille decides to pursue a richer, more dangerous mark: the glittering court of Louis XVI and Marie Antoinette.\nUsing dark magic Camille transforms herself into the ‘Baroness de la Fontaine‘ and presents herself at the court of Versaille, where she soon finds herself swept up in a dizzying life of riches, finery and suitors. But Camille’s resentment of the rich is at odds with the allure of their glamour and excess, and she soon discovers that she’s not the only one leading a double life.",
+    fiction=True,
+    locations=[paris],
+    user=hugo
+    )
+    the_age_of_light = Book(
+    title="The Age of Light",
+    author="Whitney Scharer",
+    isbn="978-1509889129",
+    genre="Art History",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/51D2-aS%2BeqL.jpg",
+    date=2019,
+    description="‘I’d rather take a picture than be one,’ Lee Miller declares, as she arrives in Paris one cool day in 1929. Lee has left behind her life in New York and a successful modelling career at Vogue to pursue her dream of becoming a photographer. She soon catches the eye of renowned Surrealist artist Man Ray and convinces him to hire her as his assistant. Man is an egotistical, charismatic force, and as Lee becomes both his muse and his protégé, they embark upon a passionate affair.\nLee and Man spend their days working closely in the studio and their nights at smoky cabarets, opium dens and wild parties. But as Lee begins to assert herself, and to create pioneering work of her own, Man’s jealousy spirals out of control, and leads to a betrayal that threatens to destroy them both . . .\nTransporting us from bohemian Paris to the battlefields of WWII, The Age of Light is a powerful and intoxicating story about love, obsession and the personal price of ambition. Based on the incredible true story, in her debut novel Whitney Scharer brings a brilliant and revolutionary artist out of the shadow of a man’s legacy, and into the light.",
+    fiction=True,
+    locations=[paris, london],
+    user=lhmurphy
+    )
+    fresh_air_and_empty_streets = Book(
+    title="Fresh Air and Empty Streets",
+    author="Oliver Cable",
+    isbn="978-0995450905",
+    genre="Literary Fiction",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/51-q4hmQoKL.jpg",
+    date=2016,
+    description="Fifteen years ago, Alexander left his wife and small child behind to pursue the life of an artist in Paris. Now all grown up, Felix travels to Paris to meet his elusive father. On a journey through smoky jazz bars, artists' studios and along the banks of the Seine, Felix discovers more and more about Alexander, calling into question his long-held beliefs.",
+    fiction=True,
+    locations=[paris],
+    user=elle
+    )
+    the_last_tudor = Book(
+    title="The Last Tudor",
+    author="Philippa Gregory",
+    isbn="978-1471133077",
+    genre="Historical Fiction",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/612miJfoAnL.jpg",
+    date=2018,
+    description="Jane Grey was Queen of England for nine days. Using her position as cousin to the deceased king, her father and his conspirators put her on the throne ahead of the king’s half-sister Mary, who quickly mustered an army, claimed her crown and locked Jane in the Tower. When Jane refused to betray her Protestant faith, Mary sent her to the executioner’s block. There Jane turned her father’s greedy, failed grab for power into her own brave and tragic martyrdom.\n‘Learn you to die’ is the advice that Jane gives in a letter to her younger sister Katherine, who has no intention of dying. She intends to enjoy her beauty and her youth and find love. But her lineage makes her a threat to the insecure and infertile Queen Mary and, when Mary dies, to her sister Queen Elizabeth, who will never allow Katherine to marry and produce a potential royal heir before she does.  So when Katherine’s secret marriage is revealed by her pregnancy, she too must go to the Tower.\n‘Farewell, my sister,’ writes Katherine to the youngest Grey sister, Mary. A beautiful dwarf, disregarded by the court, Mary finds it easy to keep secrets, especially her own, while avoiding Elizabeth’s suspicious glare. After watching her sisters defy the queen, Mary is aware of her own perilous position as a possible heir to the throne. But she is determined to command her own destiny and be the last Tudor to risk her life in matching wits with her ruthless and unforgiving cousin Elizabeth.",
+    fiction=True,
+    locations=[london],
+    user=hugo
+    )
+    tiger = Book(
+    title="Tiger",
+    author="Polly Clark",
+    isbn="978-1786485427",
+    genre="Literary Fiction",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/41DO3oa3KhL.jpg",
+    date=2019,
+    description="Set across two continents, Tiger is a sweeping story of survival and redeeming love that plunges the reader into one of the world's last wildernesses with blistering authenticity.\nFrieda is a primatologist, sensitive and solitary, until a violent attack shatters her ordered world. In her new role as a zookeeper, she confronts a very different ward: an injured wild tiger.\nDeep in the Siberian taiga, Tomas, a Russian conservationist, fears that the natural order has toppled. The king tiger has been killed by poachers and a spectacular tigress now patrols his vast territory as her own.\nIn a winter of treacherous competition, the path of the tigress and her cub crosses with an Udeghe huntress and her daughter. Vengeance must follow, and the fates of both tigers and people are transformed.\nLearning of her tiger's past offers Frieda the chance of freedom. Faced with the savage forces of nature, she must trust to her instinct and, like the tiger, find a way to live in the world.",
+    fiction=True,
+    locations=[london, taiga],
+    user=lhmurphy
+    )
+    once_upon_a_river = Book(
+    title="Once Upon a River",
+    author="Diane Setterfield",
+    isbn="978-0857525659",
+    genre="Folklore",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/614xYsB2wSL.jpg",
+    date=2019,
+    description="On a dark midwinter’s night in an ancient inn on the Thames, the regulars are entertaining themselves by telling stories when the door bursts open and in steps an injured stranger. In his arms is the drowned corpse of a child. \nHours later, the dead girl stirs, takes a breath and returns to life.\nIs it a miracle?\nIs it magic?\nAnd who does the little girl belong to? \nAn exquisitely crafted multi-layered mystery brimming with folklore, suspense and romance, as well as with the urgent scientific curiosity of the Darwinian age, Once Upon a River is as richly atmospheric as Setterfield’s bestseller The Thirteenth Tale.",
+    fiction=True,
+    locations=[london, oxford],
+    user=elle
+    )
+    the_da_vinci_code = Book(
+    title="The Da Vinci Code",
+    author="Dan Brown",
+    isbn="978-0385504201",
+    genre="Thriller",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/513WB5gwT9L.jpg",
+    date=2009,
+    description="Harvard professor Robert Langdon receives an urgent late-night phone call while on business in Paris: the elderly curator of the Louvre has been brutally murdered inside the museum. Alongside the body, police have found a series of baffling codes. \nAs Langdon and a gifted French cryptologist, Sophie Neveu, begin to sort through the bizarre riddles, they are stunned to find a trail that leads to the works of Leonardo Da Vinci - and suggests the answer to a mystery that stretches deep into the vault of history.\nUnless Langdon and Neveu can decipher the labyrinthine code and quickly assemble the pieces of the puzzle, a stunning historical truth will be lost forever...",
+    fiction=True,
+    locations=[london, paris, edinburgh],
+    user=hugo
+    )
+    a_murder_is_announced = Book(
+    title="A Murder is Announced (Miss Marple)",
+    author="Agatha Christie",
+    isbn="978-0007120963",
+    genre="Mystery",
+    jacket="https://images-eu.ssl-images-amazon.com/images/I/519HhpgnzXL.jpg",
+    date=2016,
+    description="Agatha Christie’s most ingenious murder mystery, reissued with a striking new cover designed to appeal to the latest generation of Agatha Christie fans and book lovers.\nThe villagers of Chipping Cleghorn, including Jane Marple, are agog with curiosity over an advertisement in the local gazette which reads: ‘A murder is announced and will take place on Friday October 29th, at Little Paddocks at 6.30 p.m.’\nA childish practical joke? Or a hoax intended to scare poor Letitia Blacklock? Unable to resist the mysterious invitation, a crowd begins to gather at Little Paddocks at the appointed time when, without warning, the lights go out…",
+    fiction=True,
+    locations=[],
+    user=lhmurphy
     )
 
     Review(
