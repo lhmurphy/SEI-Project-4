@@ -11,8 +11,7 @@ class Show extends React.Component {
     this.state = {
       book: null,
       data: {},
-      review: {},
-      allReviews: ''
+      review: {}
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -50,27 +49,18 @@ class Show extends React.Component {
       .then(() => this.props.history.push('/books'))
   }
 
-  canModify() {
+  canModifyBook() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.book.user.id
   }
 
-  getAllReviews() {
-    let allReviews = [...this.state.books.reviews]
-    allReviews = allReviews.map(review => {
-      review.new_time = new Date(review.time).getTime()
-    }).sort((firstValue, secondValue) => {
-      return firstValue.new_time - secondValue.new_time
-    })
-
-    this.setState({
-      allReviews
-    })
-  }
 
   render() {
     if(!this.state.book) return null
     if(!this.state.data) return null
-    console.log(this.state.book.locations.name)
+    if(!this.state.data) return null
+
+    console.log(this.state.reviews)
+
 
     return (
       <section className="section">
@@ -100,7 +90,7 @@ class Show extends React.Component {
                       <p key={location.id}>Locations: {location.name}</p>
                     )}
 
-                    {this.canModify() &&
+                    {this.canModifyBook() &&
                     <div className="buttons">
                       <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
                       <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
@@ -111,9 +101,9 @@ class Show extends React.Component {
                 <div className="card-right">
                   <div className="column">
 
-                    <p>Added by: </p>
+                    <p>Added by: {this.state.book.user.username}</p>
                     <figure className="image">
-                      <img src={this.state.book.user.image} alt={this.state.book.title} />
+                      <img src={this.state.book.user.image ? this.state.book.user.image:'../../images/user.png'} alt={name} />
                     </figure>
                   </div>
 
@@ -136,53 +126,69 @@ class Show extends React.Component {
               </p>
             </div>
           </div>
-        </div>
 
+          <div className="reviews">
+            {this.state.book.reviews.map(review =>
+              <article key={review.id} className="media">
+                <figure className="media-left">
+                  <p className="image is-64x64">
+                    <img src={review.user.image ? review.user.image:'../../images/user.png'} alt={name} />
+                  </p>
+                </figure>
+                <div className="media-content">
+                  <div className="content">
+                    <p className="reviews">
+                      <strong>{review.user.username} </strong>
+                      <small>{review.created_at.substring(0, review.created_at.length - 8)}</small>
+                      <br />
+                      {review.content}
 
-        {this.state.book.reviews.map(review =>
-          <article key={review.id} className="media">
-            <figure className="media-left">
-              <p className="image is-64x64">
-                <img src={review.user.image ? review.user.image:'../../images/user.png'} alt={name} />
-              </p>
-            </figure>
-            <div className="media-content">
-              <div className="content">
-                <p className="reviews">
-                  <strong>{review.user.username}</strong>
-                  <small>{review.created_at.substring(0, review.created_at.length - 8)}</small>
-                  <br />
-                  {review.content}
-                </p>
-              </div>
-            </div>
-          </article>)}
-
-        <article className="media">
-          <div className="media-content">
-            <div className="field">
-              <p className="control">
-                <textarea
-                  className="textarea"
-                  name="content"
-                  onChange={this.handleChange}
-                  placeholder="Add a comment..."
-                />
-              </p>
-            </div>
-            <nav className="level">
-              <div className="level-left">
-                <div className="level-item">
-                  <button className="button is-info" onClick={this.handleSubmit}>Submit</button>
-
+                    </p>
+                  </div>
                 </div>
+              </article>)}
+
+            <article className="media">
+              <div className="media-content">
+                <div className="field">
+                  <p className="control">
+                    <textarea
+                      className="textarea"
+                      name="content"
+                      onChange={this.handleChange}
+                      placeholder="Add a comment..."
+                      onKeyDown={this.onEnter}
+                    />
+                  </p>
+                </div>
+                <nav className="level">
+                  <div className="level-left">
+                    <div className="level-item">
+                      <button className="button is-info" onClick={this.handleSubmit}>Submit</button>
+
+                    </div>
+                  </div>
+                </nav>
               </div>
-            </nav>
+            </article>
           </div>
-        </article>
+        </div>
       </section>
     )
   }
 }
 
 export default Show
+
+// getAllReviews() {
+//   let allReviews = [...this.state.books.reviews]
+//   allReviews = allReviews.map(review => {
+//     review.new_time = new Date(review.time).getTime()
+//   }).sort((firstValue, secondValue) => {
+//     return firstValue.new_time - secondValue.new_time
+//   })
+//
+//   this.setState({
+//     allReviews
+//   })
+// }

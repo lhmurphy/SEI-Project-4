@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Select from 'react-select'
+import { Link } from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 
@@ -14,7 +15,13 @@ const locationOptions = [
   { value: 7, label: 'Belgium' },
   { value: 8, label: 'Bhutan' },
   { value: 9, label: 'Chile' },
-  { value: 10, label: 'Copenhagen' }
+  { value: 10, label: 'Copenhagen' },
+  { value: 11, label: 'Palestine' },
+  { value: 12, label: 'London' },
+  { value: 13, label: 'Taiga' },
+  { value: 14, label: 'Oxford' },
+  { value: 15, label: 'Edinburgh' }
+
 ]
 
 class BooksNew extends React.Component {
@@ -60,11 +67,9 @@ class BooksNew extends React.Component {
   }
 
   render() {
-    console.log('this.state.books', this.state.books)
-    console.log(this.state.data, 'state')
-
     return (
       <section className="section">
+
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
@@ -163,6 +168,7 @@ class BooksNew extends React.Component {
                   </div>
                 </div>
                 <button className="button is-primary">Submit</button>
+                <button className="button is-danger"><Link to="/books">Cancel</Link></button>
               </form>
             </div>
           </div>

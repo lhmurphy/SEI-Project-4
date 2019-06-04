@@ -39,12 +39,13 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <section className="section">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
+              <p className="title is-4">Login</p>
+              <hr />
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
                   <label className="label">Email</label>

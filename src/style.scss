@@ -59,6 +59,11 @@ main {
 #books-index {
   width: 80%;
   margin: 0 10%;
+
+  img {
+    min-width: 150px;
+    max-width: 150px;
+  }
 }
 
 #quote {
@@ -84,9 +89,6 @@ main {
   align-items: center;
   margin: 0 25px;
 }
-img {
-  max-width: 150px;
-}
 
 .card {
   margin: 15px;
@@ -105,6 +107,7 @@ img {
   img {
     width: 50px;
     margin-left: 10px;
+    border-radius: 50%;
   }
   .column {
     display: flex;
@@ -129,6 +132,12 @@ img {
   align-items: center;
   padding: 10px 30px;
   background-color: #F9F9F9;
+}
+
+.media-left {
+  img {
+    border-radius: 50px;
+  }
 }
 
 .go-back {

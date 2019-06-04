@@ -97,11 +97,6 @@ class Edit extends React.Component {
 
   render() {
     if(!this.state.data.locations) return null
-    console.log(this.state.allLocations, 'all locations')
-    console.log(this.state.data.id , 'id')
-    console.log(this.state.data , 'data')
-
-
     return (
       <section className="section">
         <div className="container">

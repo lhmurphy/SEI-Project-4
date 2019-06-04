@@ -24,9 +24,7 @@ class Home extends React.Component{
   }
 
   render() {
-    console.log(this.state.books)
-    console.log(this.state.author)
-
+    if(!this.state.books) return null
     return(
       <div className="home">
         <div className="home-container">
@@ -40,6 +38,10 @@ class Home extends React.Component{
             <br />
             {Auth.isAuthenticated() && <Link to="/books" className="button is-danger"><h2>Find your next read</h2></Link>}
           </div>
+        </div>
+        <div className="new-users">
+
+
         </div>
       </div>
     )

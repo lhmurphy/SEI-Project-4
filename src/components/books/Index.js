@@ -46,13 +46,11 @@ class Index extends React.Component {
 
   render() {
     if(!this.state.books) return null
-    console.log(this.state.books)
-    console.log(this.state.reviews)
     return (
       <main>
-              <Hero />
+        <Hero />
         <div className="book-button">
-          {Auth.isAuthenticated() && <Link to="/books/new" className="button is-danger">Add a book</Link>}
+          {Auth.isAuthenticated() && <Link to="/books/new" className="button is-danger">Submit a book</Link>}
         </div>
         <section className="section">
           <div className="container">
