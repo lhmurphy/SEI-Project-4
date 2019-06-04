@@ -94,6 +94,24 @@ img {
   background-color: #F9F9F9;
 }
 
+.card-middle {
+  width: 650px
+}
+
+.card-right {
+  margin-top: 150px;
+  width: 200px;
+
+  img {
+    width: 50px;
+    margin-left: 10px;
+  }
+  .column {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .media {
   width: 70%;
   margin-left: 200px;

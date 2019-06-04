@@ -70,9 +70,7 @@ class Show extends React.Component {
   render() {
     if(!this.state.book) return null
     if(!this.state.data) return null
-    console.log(this.state.book.user.image, 'elle')
-    console.log(this.state.book.reviews)
-    console.log(this.state.allReviews)
+    console.log(this.state.book.locations.name)
 
     return (
       <section className="section">
@@ -81,22 +79,26 @@ class Show extends React.Component {
           <div className="card is-horizontal columns" id="books-show">
             <div className="card-content">
               <div className="columns">
-                <div className="card-left">
+                <div className="card-left is-half">
                   <div className="column">
-                    <figure className="image is-128x128px">
+                    <figure className="image">
                       <img src={this.state.book.jacket} alt={this.state.book.title} />
                     </figure>
                   </div>
                 </div>
 
-                <div className="card-right">
+                <div className="card-middle">
                   <div className="column">
 
                     <p className="title is-2">{this.state.book.title}</p>
-                    <p className="title is-4">by {this.state.book.author}</p>
+                    <p className="title is-4"> by {this.state.book.author}</p>
                     <p>Genre: {this.state.book.genre}</p>
                     <p>ISBN: {this.state.book.isbn}</p>
                     <p>Publication year: {this.state.book.year}</p>
+
+                    {this.state.book.locations.map(location =>
+                      <p key={location.id}>Locations: {location.name}</p>
+                    )}
 
                     {this.canModify() &&
                     <div className="buttons">
@@ -104,10 +106,17 @@ class Show extends React.Component {
                       <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
                     </div>
                     }
-                    <figure className="image is-64x64px">
-                      <p>Added by:<img src={this.state.book.user.image} alt={this.state.book.title} /></p>
+                  </div>
+                </div>
+                <div className="card-right">
+                  <div className="column">
+
+                    <p>Added by: </p>
+                    <figure className="image">
+                      <img src={this.state.book.user.image} alt={this.state.book.title} />
                     </figure>
                   </div>
+
                 </div>
 
                 <br />
@@ -117,7 +126,14 @@ class Show extends React.Component {
           </div>
           <div className="card is-horizontal columns" id="books-show">
             <div className="card-content">
-              <p>{this.state.book.description}</p>
+
+              <p className="comment-body">
+                {this.state.book.description.split('\n').map((text, i) =>
+                  <span key={i}>
+                    {text}<br /><br />
+                  </span>
+                )}
+              </p>
             </div>
           </div>
         </div>
