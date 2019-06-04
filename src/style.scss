@@ -13,6 +13,22 @@ body {
   margin: 0;
 }
 
+main {
+    height: 70vh;
+}
+
+.home {
+  h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+#hero{
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3h) );
+  background-blend-mode: 'darken'
+}
+
 #books-index {
   width: 80%;
   margin: 0 10%;
