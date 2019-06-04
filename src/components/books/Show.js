@@ -50,9 +50,9 @@ class Show extends React.Component {
       .then(() => this.props.history.push('/books'))
   }
 
-  // canModify() {
-  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.user.id
-  // }
+  canModify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.book.user.id
+  }
 
   getAllReviews() {
     let allReviews = [...this.state.books.reviews]
@@ -98,13 +98,15 @@ class Show extends React.Component {
                     <p>ISBN: {this.state.book.isbn}</p>
                     <p>Publication year: {this.state.book.year}</p>
 
+                    {this.canModify() &&
                     <div className="buttons">
                       <Link to={`/books/${this.state.book.id}/edit`} className="button is-primary">Edit</Link>
                       <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
-                      <figure className="image is-64x64px">
-                        <p>Added by:<img src={this.state.book.user.image} alt={this.state.book.title} /></p>
-                      </figure>
                     </div>
+                    }
+                    <figure className="image is-64x64px">
+                      <p>Added by:<img src={this.state.book.user.image} alt={this.state.book.title} /></p>
+                    </figure>
                   </div>
                 </div>
 
