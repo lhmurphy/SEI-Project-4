@@ -1,15 +1,15 @@
 class Flash {
   static setMessage(type, content) {
-    this._messages = this._messages || {}
-    this._messages[type] = content
+    this.messages = this.messages || {}
+    this.messages[type] = content
   }
 
   static getMessages() {
-    return this._messages
+    return this.messages
   }
 
   static clearMessages() {
-    this._messages = null
+    this.messages = null
   }
 
 }

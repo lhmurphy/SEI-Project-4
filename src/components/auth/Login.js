@@ -33,7 +33,7 @@ class Login extends React.Component {
       .then((res) => {
         Auth.setToken(res.data.token)
         Flash.setMessage('success', res.data.messages)
-        this.props.history.push('/')
+        this.props.history.push('/books')
       })
       .catch(() => this.setState({ error: 'Incorrect Credentials' }))
   }

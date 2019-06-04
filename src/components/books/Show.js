@@ -51,7 +51,7 @@ class Show extends React.Component {
   }
 
   // canModify() {
-  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.user._id
+  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.user.id
   // }
 
   getAllReviews() {

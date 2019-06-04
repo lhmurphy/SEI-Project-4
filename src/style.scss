@@ -38,10 +38,10 @@ main {
     text-transform: uppercase;
     font-weight: bold;
   }
-}
 
-.home:button {
-  color: yellow;
+  .button {
+    margin: 30px 20px;
+  }
 }
 .home-container {
   display: flex;

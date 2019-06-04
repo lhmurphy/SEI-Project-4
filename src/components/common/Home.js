@@ -33,10 +33,13 @@ class Home extends React.Component{
           <h1>Welcome to Wanderlist</h1>
             Join the Wanderlist community to discover and share books that match your next travel destination.
           <br />
-          {!Auth.isAuthenticated() && <Link to="/register" className="button is-danger">Register</Link>}
-          {!Auth.isAuthenticated() && <Link to="/login" className="button is-danger">Login</Link>}
-          <br />
-          {Auth.isAuthenticated() && <Link to="/books" className="button is-danger"><h2>Find your next read</h2></Link>}
+          <div className="home-buttons">
+
+            {!Auth.isAuthenticated() && <Link to="/login" className="button is-danger">Login</Link>}
+            {!Auth.isAuthenticated() && <Link to="/register" className="button is-danger">Register</Link>}
+            <br />
+            {Auth.isAuthenticated() && <Link to="/books" className="button is-danger"><h2>Find your next read</h2></Link>}
+          </div>
         </div>
       </div>
     )
