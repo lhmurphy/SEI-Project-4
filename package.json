@@ -26,6 +26,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-select": "^3.0.3",
+    "react-year-month-selector": "^0.0.8",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "username": "^5.0.0",

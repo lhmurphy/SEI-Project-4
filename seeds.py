@@ -116,7 +116,7 @@ with db_session():
     genre="Historical Romance",
     jacket="https://images-na.ssl-images-amazon.com/images/I/41056SHJ3PL._SX299_BO1,204,203,200_.jpg",
     date=2016,
-    description="The sweeping tale of love challenged by war, as romantic and gripping as Gone with the Wind or Dr. Zhivago, Ali& Nino portrays, against a glamorously exotic backdrop,the enduring love between childhood friends divided by separate cultures.Ali and Nino grow up together in carefree innocence in Baku, on the Caspian Sea. Here, where East and West collide, they are inevitably drawn into the events of World War I and the Russian Revolution. Torn apart by the turmoil of the divided society around them, Ali joins the defense of Azerbaijan from the onslaught of the Red Army and Nino flees to the safety of Paris with their child, unsure whether they will ever see each other again. This is an unforgettable story of blood feud, adventure, and personal heroism―and a love that endures the upheaval of cultures.",
+    description="The sweeping tale of love challenged by war, as romantic and gripping as Gone with the Wind or Dr. Zhivago, Ali& Nino portrays, against a glamorously exotic backdrop,the enduring love between childhood friends divided by separate cultures.Ali and Nino grow up together in carefree innocence in Baku, on the Caspian Sea. Here, where East and West collide, they are inevitably drawn into the events of World War I and the Russian Revolution. \n Torn apart by the turmoil of the divided society around them, Ali joins the defense of Azerbaijan from the onslaught of the Red Army and Nino flees to the safety of Paris with their child, unsure whether they will ever see each other again. This is an unforgettable story of blood feud, adventure, and personal heroism―and a love that endures the upheaval of cultures.",
     fiction=True,
     locations=[azerbaijan],
     user=hugo
@@ -348,7 +348,7 @@ with db_session():
     )
 
     Review(
-    content="pretty average book to me",
+    content="pretty average I thought",
     book=all_the_light_we_cannot_see,
     user=hugo
     )

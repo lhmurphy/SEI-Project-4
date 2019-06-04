@@ -15,12 +15,6 @@ class Home extends React.Component{
   componentDidMount() {
     axios.get('/api/books')
       .then(res => this.setState({ books: res.data }))
-
-    setInterval(() => {
-      let currentImg = this.state.currentImg + 1
-      currentImg === this.state.images.length ? currentImg = 0:null
-      this.setState({ currentImg })
-    }, 4000)
   }
 
   render() {

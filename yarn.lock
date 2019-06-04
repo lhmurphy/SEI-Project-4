@@ -4961,7 +4961,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.8.6:
+react-dom@^16.3.2, react-dom@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
   integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
@@ -4977,6 +4977,11 @@ react-input-autosize@^2.2.1:
   integrity sha512-3+K4CD13iE4lQQ2WlF8PuV5htfmTRLH6MDnfndHM6LuBRszuXnuyIfE7nhSKt8AzRBZ50bu0sAhkNMeS5pxQQA==
   dependencies:
     prop-types "^15.5.8"
+
+react-input-mask@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-1.2.2.tgz#225a1130d316ee54cea7431f004c738b4c41b4da"
+  integrity sha512-bMbpt+PeErDvMYGGln8RaivWti4U3TOXLRG77dElEfdetVOSysmrVBKB6XvL1cKUMscaqcXvYhmLFjLpCH5e4Q==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.8.6"
@@ -5043,7 +5048,16 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.8.6:
+react-year-month-selector@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-year-month-selector/-/react-year-month-selector-0.0.8.tgz#8c88cc05f7cccd0eefcb7841c40b05b45e436050"
+  integrity sha512-SwBj1UVrom6nrtJgW9kL2YPmZab+wjm0JohlD5AHDRcIQ0MtBIabQlM+t4KKgAiNGSNLaYdTPECNMBonduhj9w==
+  dependencies:
+    react "^16.3.2"
+    react-dom "^16.3.2"
+    react-input-mask "^1.2.2"
+
+react@^16.3.2, react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==

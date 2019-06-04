@@ -69,10 +69,11 @@ class BooksNew extends React.Component {
   render() {
     return (
       <section className="section">
-
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
+              <p className="title is-4">Submit your book here</p>
+              <hr />
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
                   <label className="label">Title</label>

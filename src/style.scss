@@ -97,11 +97,11 @@ main {
 }
 
 .card-middle {
-  width: 650px
+  min-width: 450px
 }
 
 .card-right {
-  margin-top: 150px;
+  margin-top: 250px;
   width: 200px;
 
   img {
@@ -132,6 +132,11 @@ main {
   align-items: center;
   padding: 10px 30px;
   background-color: #F9F9F9;
+
+  .card-left {
+  min-width: 220px;
+  max-width: 220px;
+  }
 }
 
 .media-left {
