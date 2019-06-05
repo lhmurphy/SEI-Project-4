@@ -331,7 +331,7 @@ with db_session():
     date=2016,
     description="Agatha Christie’s most ingenious murder mystery, reissued with a striking new cover designed to appeal to the latest generation of Agatha Christie fans and book lovers.\nThe villagers of Chipping Cleghorn, including Jane Marple, are agog with curiosity over an advertisement in the local gazette which reads: ‘A murder is announced and will take place on Friday October 29th, at Little Paddocks at 6.30 p.m.’\nA childish practical joke? Or a hoax intended to scare poor Letitia Blacklock? Unable to resist the mysterious invitation, a crowd begins to gather at Little Paddocks at the appointed time when, without warning, the lights go out…",
     fiction=True,
-    locations=[],
+    locations=[london],
     user=lhmurphy
     )
 
@@ -354,14 +354,26 @@ with db_session():
     )
 
     Review(
-    content="Best book ever, I loved it!",
-    book=in_cold_blood,
+    content="I'll be recommending this book to all my friends!",
+    book=enchantee,
     user=lhmurphy
     )
 
     Review(
-    content="I'll be recommending this book to all my friends!",
-    book=all_the_light_we_cannot_see,
+    content="Couldn't recommend this book enough!",
+    book=in_cold_blood,
+    user=hugo
+    )
+
+    Review(
+    content="Yeah I found this pretty average to be fair",
+    book=in_cold_blood,
+    user=elle
+    )
+
+    Review(
+    content="Freaky but a brilliant read!",
+    book=in_cold_blood,
     user=lhmurphy
     )
 
