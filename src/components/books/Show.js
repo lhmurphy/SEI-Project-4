@@ -84,7 +84,7 @@ class Show extends React.Component {
                     <p className="title is-4"> by {this.state.book.author}</p>
                     <p>Genre: {this.state.book.genre}</p>
                     <p>ISBN: {this.state.book.isbn}</p>
-                    <p>Publication year: {this.state.book.year}</p>
+                    <p>Publication year: {this.state.book.date}</p>
 
                     {this.state.book.locations.map(location =>
                       <p key={location.id}>Locations: {location.name}</p>

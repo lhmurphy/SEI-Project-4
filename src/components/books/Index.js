@@ -46,6 +46,7 @@ class Index extends React.Component {
 
   render() {
     if(!this.state.books) return null
+    console.log(this.state.locationId)
     return (
       <main>
         <Hero />

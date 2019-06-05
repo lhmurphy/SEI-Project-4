@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Promise from 'bluebird'
+import { Link } from 'react-router-dom'
 import Select from 'react-select'
 
 import Auth from '../../lib/Auth'
@@ -205,6 +206,7 @@ class Edit extends React.Component {
                   </div>
                 </div>
                 <button className="button is-primary">Submit</button>
+                <button className="button is-danger"><Link to="/books">Cancel</Link></button>
               </form>
             </div>
           </div>
