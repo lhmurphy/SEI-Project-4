@@ -1,11 +1,9 @@
 # SEI-Project-3: Wanderlist
----
 
 ## Timeframe - 8 days in a group of 4 developers
-***
 
 ## Technologies/ Frameworks used:
-***
+
 * HTML5
 * SCSS
 * Python
@@ -25,7 +23,7 @@
 * Trello
 
 ## Overview
-***
+
 Wanderlist is a community-based book recommendation site for users to find their next read based on their travel destination.
 
 ![HOMEPAGE](https://user-images.githubusercontent.com/38182323/59762521-5412af00-928f-11e9-9696-80e039e2dfcc.png)
@@ -33,7 +31,6 @@ Wanderlist is a community-based book recommendation site for users to find their
 You can find a hosted version here ----> https://lauras-travel-books.herokuapp.com/
 
 ## Functionality
-****
 
 * As this is a community based website, users are only able to interact with the site after creating an account and logging in
 * The landing page prompts the user to register or log in
@@ -53,10 +50,10 @@ The backend was built with Python and PostgreSQL using SQLAlchemy for database i
 
 ### Database relationships
 
-Books to Location: Many to many
-Books to Reviews: One to many
-Books to User: Many to one
-User to Reviews: One to many
+* Books to Location: Many to many
+* Books to Reviews: One to many
+* Books to User: Many to one
+* ser to Reviews: One to many
 
 ### Filtering by location
 
@@ -88,14 +85,10 @@ filterBooks() {
 ```
 
 ## Design
-***
 
 The frontend was built using React and Bulma, I wanted to keep the design clean and simple and make the book jackets the central focus.
 
-![INDEX](https://user-images.githubusercontent.com/38182323/59763911-9093da00-9292-11e9-9c9f-e76ffb5e0290.png)
-
 ## Wins
-***
 
 When the user adds a new book or edits an existing book, I used React-Select for the locations field in the form. This feature enables the user to select a location from a list but to also type the first few letters of a location and autofill will give options for suggested places - I wanted this feature to prevent the user from misspelling a location and therefor adding incorrect data to the database.
 
@@ -134,7 +127,6 @@ class BookSchema(Schema):
 ```
 
 ## Challenges
-***
 
 React-Select posed one of the greatest challenges in this project (detailed above). However, the Edit form created another element of complication when sending back the data to the database, I was getting errors because the form was attempting to send back all of the data so I needed to delete these in the handleSubmit:   
 
