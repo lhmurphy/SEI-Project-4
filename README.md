@@ -92,7 +92,7 @@ filterBooks() {
 
 The frontend was built using React and Bulma, I wanted to keep the design clean and simple and make the book jackets the central focus.
 
-![INDEX](https://user-images.githubusercontent.com/38182323/59762320-ec5c6400-928e-11e9-8e4e-7c1dfc631ed5.png)
+![INDEX](https://user-images.githubusercontent.com/38182323/59763911-9093da00-9292-11e9-9c9f-e76ffb5e0290.png)
 
 ## Wins
 ***
