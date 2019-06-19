@@ -92,7 +92,7 @@ The frontend was built using React and Bulma, I wanted to keep the design clean 
 
 When the user adds a new book or edits an existing book, I used React-Select for the locations field in the form. This feature enables the user to select a location from a list but to also type the first few letters of a location and autofill will give options for suggested places - I wanted this feature to prevent the user from misspelling a location and therefor adding incorrect data to the database.
 
-![REACT-SELECT](https://user-images.githubusercontent.com/38182323/59762617-86241100-928f-11e9-8312-5283f9e822e6.png)
+![REACT-SELECT](https://user-images.githubusercontent.com/38182323/59763911-9093da00-9292-11e9-9c9f-e76ffb5e0290.png)
 
 I learnt a lot about creating relationships between models, I had to ensure to include Set data type for all collections (lists) and to save them as Nested within the Schemas. To avoid recursion I had to made some exclusions:
 
