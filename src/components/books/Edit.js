@@ -16,7 +16,13 @@ const locationOptions = [
   { value: 7, label: 'Belgium' },
   { value: 8, label: 'Bhutan' },
   { value: 9, label: 'Chile' },
-  { value: 10, label: 'Copenhagen' }
+  { value: 10, label: 'Copenhagen' },
+  { value: 11, label: 'Palestine' },
+  { value: 12, label: 'London' },
+  { value: 13, label: 'Taiga' },
+  { value: 14, label: 'Oxford' },
+  { value: 15, label: 'Edinburgh' }
+
 ]
 
 class Edit extends React.Component {
@@ -78,16 +84,16 @@ class Edit extends React.Component {
   }
 
 
-  filterBooks() {
-    return this.state.data.book.filter(book => {
-      const bookLocationIds = book.location.map(bookLocation => bookLocation.id)
-      const locationIds = this.allLocations.map(allLocation => allLocation.id)
-
-      if(bookLocationIds.id === locationIds.userId) {
-        return locationIds
-      }
-    })
-  }
+  // filterBooks() {
+  //   return this.state.data.book.filter(book => {
+  //     const bookLocationIds = book.location.map(bookLocation => bookLocation.id)
+  //     const locationIds = this.allLocations.map(allLocation => allLocation.id)
+  //
+  //     if(bookLocationIds.id === locationIds.userId) {
+  //       return locationIds
+  //     }
+  //   })
+  // }
 
   handleLocationChange(selectedLocation) {
     const selectedLocations = selectedLocation.map(location => location.value)

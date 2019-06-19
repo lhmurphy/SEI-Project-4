@@ -36,10 +36,8 @@ class Index extends React.Component {
     if(!this.state.locationId) {
       return this.state.books
     }
-
     return this.state.books.filter(book => {
       const locationIds = book.locations.map(location => location.id)
-
       return locationIds.includes(this.state.locationId)
     })
   }

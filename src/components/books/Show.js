@@ -59,9 +59,6 @@ class Show extends React.Component {
     if(!this.state.data) return null
     if(!this.state.data) return null
 
-    console.log(this.state.reviews)
-
-
     return (
       <section className="section">
         <div className="container">
