@@ -1,6 +1,6 @@
-# SEI-Project-3: Wanderlist
+# SEI-Project-4: Wanderlist
 
-## Timeframe - 8 days in a group of 4 developers
+## Timeframe - 7 day solo project
 
 ## Technologies/ Frameworks used:
 
